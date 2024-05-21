@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+$primary-color: #0f0f37;
+$secondary-color: #1f1f50;
+$tertiary-color: #050521;
+$contrast-color: #f7efe5;
+$font: gate-a1-variable;
+
+@font-face {
+  font-family: "gate-a1-variable";
+  src: url("https://fonts.adobe.com/fonts/gate-a1-variable#fonts-section");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: $primary-color;
+  font-family: $font, sans-serif;
+  color: $contrast-color;
+}

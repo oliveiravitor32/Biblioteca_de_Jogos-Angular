@@ -7,7 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { CardGameComponent } from './components/card-game/card-game.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, CardGameComponent],
+  declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
