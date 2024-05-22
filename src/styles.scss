@@ -2,11 +2,11 @@ $primary-color: #0f0f37;
 $secondary-color: #1f1f50;
 $tertiary-color: #050521;
 $contrast-color: #f7efe5;
-$font: gate-a1-variable;
+$font: Inter;
 
 @font-face {
-  font-family: "gate-a1-variable";
-  src: url("https://fonts.adobe.com/fonts/gate-a1-variable#fonts-section");
+  font-family: "Inter";
+  src: url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 }
 
 * {
@@ -14,6 +14,8 @@ $font: gate-a1-variable;
   padding: 0;
   border: 0;
   box-sizing: border-box;
+  text-decoration: none;
+  color: $contrast-color;
 }
 
 html,
@@ -24,5 +26,4 @@ body {
 body {
   background-color: $primary-color;
   font-family: $font, sans-serif;
-  color: $contrast-color;
 }
