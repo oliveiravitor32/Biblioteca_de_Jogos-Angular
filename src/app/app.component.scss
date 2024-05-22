@@ -1,4 +1,5 @@
 @import "../styles.scss";
+@import "../styles/utils/illuminated-box-shadow";
 
 header {
   position: fixed;
@@ -24,9 +25,9 @@ header {
 
       &:hover {
         cursor: pointer;
-        background-color: #fff;
-        color: #300f7b;
-        box-shadow: 0px 0px 20px 2px #734dcc;
+        background-color: $contrast-color;
+        color: $purple-color;
+        box-shadow: $illuminated-box-shadow;
       }
     }
   }
@@ -56,28 +57,25 @@ form {
     position: absolute;
     top: 8px;
     left: 0;
-    color: #fff;
     font-weight: bold;
     font-size: 18px;
     transition: all 0.5s;
   }
 
   & input {
-    color: #fff;
-
     font-weight: bold;
     height: auto;
     padding: 20px 8px 0 8px;
     background: transparent;
     border: 0;
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid $contrast-color;
     font-size: 18px;
     outline: none;
     transition: all 0.5s;
     text-align: bottom;
 
     &:focus {
-      border-color: #734dcc;
+      border-color: $light-color;
     }
 
     &::placeholder {
@@ -104,8 +102,8 @@ form {
       cursor: pointer;
       transform: scale(1.05);
       background-color: #fff;
-      box-shadow: 0px 0px 20px 2px #734dcc;
-      color: #300f7b;
+      box-shadow: $illuminated-box-shadow;
+      color: $purple-color;
     }
 
     &:active {

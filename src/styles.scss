@@ -2,6 +2,9 @@ $primary-color: #0f0f37;
 $secondary-color: #1f1f50;
 $tertiary-color: #050521;
 $contrast-color: #f7efe5;
+
+$purple-color: #734dcc;
+$light-color: #734dcc;
 $font: Inter;
 
 @font-face {
@@ -15,12 +18,14 @@ $font: Inter;
   border: 0;
   box-sizing: border-box;
   text-decoration: none;
+  list-style: none;
   color: $contrast-color;
 }
 
 html,
 body {
   height: 100%;
+  overflow-y: auto;
 }
 
 body {
