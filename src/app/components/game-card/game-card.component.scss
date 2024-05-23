@@ -1,0 +1,87 @@
+@import "../../../styles/utils/illuminated-box-shadow";
+@import "../../../styles.scss";
+
+.container-game-card {
+  position: relative;
+  overflow: hidden;
+  height: 280px;
+  width: 230px;
+  background-color: #fff;
+
+  &:hover {
+    cursor: pointer;
+    border: 5px solid #fff;
+    box-shadow: $illuminated-box-shadow;
+  }
+
+  &:after {
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: -1;
+    opacity: 0.5;
+  }
+
+  &:hover:after {
+    z-index: 2;
+  }
+
+  & .game-image {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: auto;
+  }
+
+  & .container-title-description {
+    position: absolute;
+    max-width: 95%;
+    text-align: center;
+    transition: all ease-in 0.5s;
+    bottom: 0;
+    transform: translateY(100%);
+    z-index: 3;
+  }
+
+  &:hover .container-title-description {
+    bottom: 50%;
+    transform: translateY(0);
+  }
+}
+
+.container-game-card button {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: 5px;
+  right: 5px;
+  background-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(1.2);
+  }
+
+  & svg {
+    width: 38px;
+    height: 38px;
+    stroke: $contrast-color;
+    fill: transparent;
+  }
+}
+
+.container-game-card:hover button {
+  z-index: 3;
+}
+
+.container-game-card.-favorited button svg {
+  fill: transparent;
+}

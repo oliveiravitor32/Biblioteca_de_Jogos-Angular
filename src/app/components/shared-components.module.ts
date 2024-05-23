@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CardGameComponent } from './card-game/card-game.component';
+
 import { ButtonShowMoreComponent } from './button-show-more/button-show-more.component';
+import { GameCardComponent } from './game-card/game-card.component';
 
 @NgModule({
-  declarations: [CardGameComponent, ButtonShowMoreComponent],
+  declarations: [GameCardComponent, ButtonShowMoreComponent],
   imports: [CommonModule],
-  exports: [CardGameComponent, ButtonShowMoreComponent],
+  exports: [GameCardComponent, ButtonShowMoreComponent],
 })
 export class SharedComponesModule {}
