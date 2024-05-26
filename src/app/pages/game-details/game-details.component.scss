@@ -1,85 +1,111 @@
 @import "../../../styles.scss";
+@import "../../../styles/utils/illuminated-text-shadow";
 
 .game-apresentation-section {
   position: relative;
-  padding: 100px 50px;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-}
-
-.game-art-background {
-  position: absolute;
-  top: 0;
+  margin: 0 auto;
   width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-.container-game-apresentation {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  gap: 50px;
-  padding: 20px 0;
-  flex: 1;
-
-  & .container-title-description {
-    & p {
-      text-align: left;
-      margin-top: 15px;
-    }
-  }
-
-  & .game-platforms-container {
-    background-color: $contrast-color;
-    padding: 10px 40px;
-    border-radius: 4px;
-
-    & p {
-      color: $secondary-color;
-      margin-bottom: 16px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-  }
-}
-
-.carousel-slide {
+  padding: 120px 0px;
   display: flex;
   justify-content: center;
-  flex: 1;
-  align-items: center;
+  align-items: flex-start;
 
-  & .carousel-control-button {
-    background-color: transparent;
-
-    & .off-screen {
-      position: absolute;
-      left: -9999px;
-    }
-
-    & svg {
-      stroke: $contrast-color;
-      fill: transparent;
-    }
-
-    &:hover svg {
-      cursor: pointer;
-      transform: scale(1.1);
-      fill: $purple-color;
-    }
+  & .game-art-background {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    z-index: -1;
   }
 
-  & .carousel-inner {
-    overflow: hidden;
-  }
+  & .container-game-apresentation {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+    padding: 20px 0;
 
-  & .carousel-item img {
-    border-radius: 10px;
-    border: 4px solid $light-color;
-    box-shadow: 0px 0px 18px -4px $contrast-color;
+    & .container-title-description {
+      & p {
+        text-align: left;
+        margin-top: 15px;
+      }
+    }
+
+    & .game-platforms-container {
+      background-color: $contrast-color;
+      padding: 10px 40px;
+      border-radius: 4px;
+
+      & p {
+        color: $secondary-color;
+        margin-bottom: 16px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.game-info-section {
+  padding: 0 50px;
+  width: 100%;
+  height: 900px;
+  background-color: $tertiary-color;
+
+  & article {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 80%;
+
+    & .wrapper-meta-game-info-items {
+      padding: 10px 0;
+      max-width: 400px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 70px;
+      row-gap: 30px;
+      color: $purple-color;
+
+      & .meta-game-info-item {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        & span {
+          color: $contrast-color;
+          text-shadow: $illuminated-text-shadow;
+          font-weight: bold;
+        }
+        & p {
+          color: $contrast-color;
+          font-weight: regular;
+        }
+      }
+    }
+
+    & .container-game-requirements-pc {
+      & h2 {
+        text-shadow: $illuminated-text-shadow;
+      }
+
+      & .wrapper-requirements-pc {
+        margin-top: 15px;
+        & ul {
+          padding-left: 50px;
+
+          & li {
+            list-style: square;
+          }
+        }
+      }
+    }
   }
 }

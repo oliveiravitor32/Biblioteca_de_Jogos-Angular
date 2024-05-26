@@ -5,7 +5,7 @@
   ></div>
   <div class="container-game-apresentation">
     <div class="container-title-description">
-      <h2>Final Fantasy VII</h2>
+      <h1>Final Fantasy VII</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, sequi
         laudantium? Debitis molestiae neque provident delectus laborum dolorum
@@ -17,54 +17,74 @@
       </p>
     </div>
   </div>
-  <div class="carousel-slide">
-    <button
-      class="carousel-control-button"
-      data-bs-target="#carouselExample"
-      data-bs-slide="prev"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="48"
-        height="48"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="m4.431 12.822 13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645z"
-        ></path>
-      </svg>
-
-      <span class="off-screen">Anterior</span>
-    </button>
-    <div class="carousel-inner">
-      <div class="carousel-item">
-        <img src="../../../assets/game-details-example-640x400.jpg" alt="..." />
+  <app-carousel></app-carousel>
+</section>
+<section class="game-info-section">
+  <article>
+    <div class="wrapper-meta-game-info-items">
+      <div class="meta-game-info-item">
+        <span>Disponível em</span>
+        <div class="container-platforms-icons">
+          <app-game-platforms></app-game-platforms>
+        </div>
+      </div>
+      <div class="meta-game-info-item">
+        <span>Genero</span>
+        <p>Ação, Aventura, Um Jogador</p>
+      </div>
+      <div class="meta-game-info-item">
+        <span>Data de lançamento</span>
+        <p>10/08/2006</p>
+      </div>
+      <div class="meta-game-info-item">
+        <span>Desenvolvedor</span>
+        <p>Game Studios</p>
+      </div>
+      <div class="meta-game-info-item">
+        <span>Produtora</span>
+        <p>Game Studios</p>
+      </div>
+      <div class="meta-game-info-item">
+        <span>Classificação etária</span>
+        <p>12+</p>
       </div>
     </div>
-    <button
-      class="carousel-control-button"
-      data-bs-target="#carouselExample"
-      data-bs-slide="next"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="48"
-        height="48"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z"
-        ></path>
-      </svg>
-      <span class="off-screen">Próximo</span>
-    </button>
-  </div>
-</section>
-<section class="game-infos-section">
-  <div class="game-platforms-container">
-    <p>Disponível em:</p>
-    <div class="container-platforms-icons">
-      <app-game-platforms></app-game-platforms>
+    <div class="container-game-requirements-pc">
+      <h2>Requisitos do sistema para PC</h2>
+      <div class="wrapper-requirements-pc">
+        <strong class="strong-text">Mínimo:</strong>
+        <ul>
+          <li>Sistema operacional: Windowns 10 64 bit</li>
+          <li>
+            Processador: Intel Core i5-6600, 3.3 GHz or AMD Ryzen 5 1500X, 3.5
+            GHz
+          </li>
+          <li>Memória: 12 GB RAM</li>
+          <li>
+            Placa de vídeo: NVIDIA GeForce GTX 750 Ti, 2 GB or AMD Radeon R7
+            360, 2 GB
+          </li>
+          <li>DirectX: Versão 11</li>
+          <li>Armazenamento: 7 GB de espaço disponível</li>
+        </ul>
+      </div>
+      <div class="wrapper-requirements-pc">
+        <strong>Recomendado:</strong>
+        <ul>
+          <li>Sistema operacional: Windowns 10 64 bit</li>
+          <li>
+            Processador: Intel Core i5-6600, 3.3 GHz or AMD Ryzen 5 1500X, 3.5
+            GHz
+          </li>
+          <li>Memória: 12 GB RAM</li>
+          <li>
+            Placa de vídeo: NVIDIA GeForce GTX 750 Ti, 2 GB or AMD Radeon R7
+            360, 2 GB
+          </li>
+          <li>DirectX: Versão 11</li>
+          <li>Armazenamento: 7 GB de espaço disponível</li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </article>
 </section>

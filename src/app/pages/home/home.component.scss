@@ -1,4 +1,5 @@
 @import "../../../styles.scss";
+@import "../../../styles/utils/illuminated-text-shadow";
 
 .banner {
   border-bottom: 2px solid #fff;
@@ -16,6 +17,7 @@ main {
 
   & h2 {
     font-weight: medium;
+    text-shadow: $illuminated-text-shadow;
     font-size: 28px;
     border-bottom: 1.8px solid $contrast-color;
     padding-left: 60px;
