@@ -21,6 +21,14 @@ const routes: Routes = [
         (m) => m.GameDetailsModule
       ),
   },
+
+  {
+    path: 'categories',
+    loadChildren: () =>
+      import('./pages/categories/categories.module').then(
+        (m) => m.CategoriesModule
+      ),
+  },
 ];
 
 @NgModule({

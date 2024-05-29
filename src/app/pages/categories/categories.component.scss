@@ -1,16 +1,15 @@
 @import "../../../styles.scss";
 
-.favorited-games-section {
+.categories-section {
   width: 100%;
   height: 100%;
-  background-image: url("../../../assets/favorite-page-bg.svg");
-  background-size: 20%;
   padding-top: 120px;
+  background-image: url("../../../assets/categories-page-bg.svg");
 
-  & .container-favorited-games {
+  .container-categories {
+    margin: 0 auto;
     width: 80%;
     height: 100%;
-    margin: 0 auto;
     padding: 30px 40px;
     background-color: $tertiary-color;
 
@@ -19,8 +18,7 @@
       margin-bottom: 20px;
     }
 
-    & .container-game-card {
-      width: 100%;
+    .container-category-cards {
       display: flex;
       flex-wrap: wrap;
       gap: 40px;
