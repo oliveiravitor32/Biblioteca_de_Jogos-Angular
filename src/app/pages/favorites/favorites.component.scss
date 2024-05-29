@@ -1,0 +1,25 @@
+@import "../../../styles.scss";
+
+.favorited-games-section {
+  background-image: url("../../../assets/favorite-page-bg.svg");
+  background-size: 20%;
+
+  & .container-favorited-games {
+    width: 80%;
+    margin: 120px auto 0 auto;
+    background-color: $tertiary-color;
+    padding: 30px 40px;
+
+    & h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    & .container-game-card {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+  }
+}

@@ -21,4 +21,4 @@ import { GamePlatformsComponent } from './game-platforms/game-platforms.componen
     GamePlatformsComponent,
   ],
 })
-export class SharedComponesModule {}
+export class SharedComponentsModule {}
