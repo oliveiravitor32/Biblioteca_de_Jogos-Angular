@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonShowMoreComponent } from './button-show-more/button-show-more.component';
 import { GameCardComponent } from './game-card/game-card.component';
 import { GamePlatformsComponent } from './game-platforms/game-platforms.component';
+import { FavoriteIconComponent } from './favorite-icon/favorite-icon.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { GamePlatformsComponent } from './game-platforms/game-platforms.componen
     ButtonShowMoreComponent,
     TitleDescriptionGameComponent,
     GamePlatformsComponent,
+    FavoriteIconComponent,
   ],
   imports: [CommonModule],
   exports: [
@@ -19,6 +21,7 @@ import { GamePlatformsComponent } from './game-platforms/game-platforms.componen
     ButtonShowMoreComponent,
     TitleDescriptionGameComponent,
     GamePlatformsComponent,
+    FavoriteIconComponent,
   ],
 })
 export class SharedComponentsModule {}

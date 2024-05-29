@@ -1,5 +1,4 @@
 @import "../../../styles/utils/illuminated-box-shadow";
-@import "../../../styles.scss";
 
 .container-game-card {
   overflow: hidden;
@@ -86,19 +85,8 @@
   &:active {
     transform: scale(1.2);
   }
-
-  & svg {
-    width: 38px;
-    height: 38px;
-    stroke: $contrast-color;
-    fill: $light-color;
-  }
 }
 
 .container-game-card-figure:hover .button-favorite {
   z-index: 3;
-}
-
-.container-game-card-figure.-favorited .button-favorite svg {
-  fill: transparent;
 }
