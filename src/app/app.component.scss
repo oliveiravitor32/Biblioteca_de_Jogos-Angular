@@ -1,5 +1,6 @@
 @import "../styles.scss";
 @import "../styles/utils/illuminated-box-shadow";
+@import "../styles/utils/styled-hover-text";
 
 header {
   position: fixed;
@@ -23,13 +24,6 @@ header {
     & a {
       font-size: 24px;
       padding: 5px 8px;
-
-      &:hover {
-        cursor: pointer;
-        background-color: $contrast-color;
-        color: $purple-color;
-        box-shadow: $illuminated-box-shadow;
-      }
     }
   }
 }

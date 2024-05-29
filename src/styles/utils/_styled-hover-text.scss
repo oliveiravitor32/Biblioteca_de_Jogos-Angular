@@ -1,0 +1,7 @@
+.styled-hover-text:hover {
+  cursor: pointer;
+  background-color: $contrast-color;
+  border-bottom-color: $light-color;
+  color: $purple-color;
+  box-shadow: $illuminated-box-shadow;
+}

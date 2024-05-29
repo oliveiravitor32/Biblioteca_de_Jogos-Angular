@@ -1,5 +1,7 @@
 @import "../../../styles.scss";
 @import "../../../styles/utils/illuminated-text-shadow";
+@import "../../../styles/utils/illuminated-box-shadow";
+@import "../../../styles/utils/styled-hover-text";
 
 .game-apresentation-section {
   position: relative;
@@ -57,13 +59,13 @@
   width: 100%;
   height: 900px;
   background-color: $tertiary-color;
+  display: flex;
+  justify-content: center;
 
-  & article {
-    margin: 0 auto;
+  & .article-meta-game-info {
     display: flex;
     flex-direction: column;
     gap: 50px;
-    width: 80%;
 
     & .wrapper-meta-game-info-items {
       padding: 10px 0;
@@ -103,6 +105,51 @@
 
           & li {
             list-style: square;
+          }
+        }
+      }
+    }
+  }
+
+  & .game-purchase-info-section {
+    & .game-purchase-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      & > li {
+        text-shadow: $illuminated-text-shadow;
+        font-weight: bold;
+
+        & a {
+          text-shadow: none;
+          font-size: 18px;
+          border-bottom: 2px solid $purple-color;
+        }
+      }
+
+      & .container-store-list {
+        & h3 {
+          text-shadow: $illuminated-text-shadow;
+        }
+        & .store-list {
+          margin-top: 5px;
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+
+          & li {
+            font-weight: bold;
+            border-bottom: 2px solid $purple-color;
+            color: #ffffff;
+            padding: 2px 4px 0 4px;
+          }
+
+          & li:hover {
+            transform: scale(1.1);
+          }
+          & li:hover a {
+            color: $purple-color;
           }
         }
       }
