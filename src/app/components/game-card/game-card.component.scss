@@ -76,22 +76,9 @@
 
 .container-game-card-figure .button-favorite {
   position: absolute;
-  width: 40px;
-  height: 40px;
-  bottom: 5px;
-  right: 5px;
-  background-color: transparent;
-
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-  }
-
-  &:active {
-    transform: scale(1.2);
-  }
+  bottom: 10px;
+  left: 20px;
 }
-
 .container-game-card-figure:hover .button-favorite {
   z-index: 3;
 }

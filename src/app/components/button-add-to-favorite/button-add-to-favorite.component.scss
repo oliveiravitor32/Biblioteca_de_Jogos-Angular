@@ -1,0 +1,40 @@
+@import "../../../styles.scss";
+@import "../../../styles/utils/illuminated-box-shadow";
+
+.button-add-to-favorite {
+  margin-top: auto;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border: 2px solid $contrast-color;
+  background-color: $secondary-color;
+  padding: 8px 12px;
+
+  &:hover {
+    box-shadow: $illuminated-box-shadow;
+    cursor: pointer;
+    transform: scale(1.01);
+  }
+
+  & svg {
+    width: 38px;
+    height: 38px;
+    stroke: $contrast-color;
+    fill: transparent;
+    &.on-favorite {
+      fill: $light-color;
+    }
+  }
+}
+
+.button-add-to-favorite.small {
+  padding: 6px 8px;
+  font-size: 13px;
+
+  & svg {
+    width: 30px;
+    height: 30px;
+  }
+}

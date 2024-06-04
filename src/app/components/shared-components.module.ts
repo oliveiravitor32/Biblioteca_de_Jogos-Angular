@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonShowMoreComponent } from './button-show-more/button-show-more.component';
 import { GameCardComponent } from './game-card/game-card.component';
 import { GamePlatformsComponent } from './game-platforms/game-platforms.component';
-import { FavoriteIconComponent } from './favorite-icon/favorite-icon.component';
+import { ButtonAddToFavoriteComponent } from './button-add-to-favorite/button-add-to-favorite.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { FavoriteIconComponent } from './favorite-icon/favorite-icon.component';
     ButtonShowMoreComponent,
     TitleDescriptionGameComponent,
     GamePlatformsComponent,
-    FavoriteIconComponent,
+    ButtonAddToFavoriteComponent,
   ],
   imports: [CommonModule],
   exports: [
@@ -21,7 +21,7 @@ import { FavoriteIconComponent } from './favorite-icon/favorite-icon.component';
     ButtonShowMoreComponent,
     TitleDescriptionGameComponent,
     GamePlatformsComponent,
-    FavoriteIconComponent,
+    ButtonAddToFavoriteComponent,
   ],
 })
 export class SharedComponentsModule {}
