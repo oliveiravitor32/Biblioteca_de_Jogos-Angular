@@ -1,3 +1,5 @@
+import { IPlatforms } from '../game-platforms.interface';
+
 export interface IDetailedGame {
   id: number;
   slug: string;
@@ -49,18 +51,5 @@ export interface IDetailedGame {
     slug: string;
     name: string;
   };
-  platforms: [
-    {
-      platform: {
-        id: number;
-        slug: string;
-        name: string;
-      };
-      released_at: string;
-      requirements: {
-        minimum: string;
-        recommended: string;
-      };
-    }
-  ];
+  platforms: [IPlatforms];
 }

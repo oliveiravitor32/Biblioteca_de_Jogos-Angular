@@ -1,3 +1,5 @@
+import { IPlatforms } from '../game-platforms.interface';
+
 export interface IGameList {
   count: number;
   next: string;
@@ -26,20 +28,7 @@ export interface IGameList {
         slug: string;
         name: string;
       };
-      platforms: [
-        {
-          platform: {
-            id: number;
-            slug: string;
-            name: string;
-          };
-          released_at: string;
-          requirements: {
-            minimum: string;
-            recommended: string;
-          };
-        }
-      ];
+      platforms: [IPlatforms];
     }
   ];
 }

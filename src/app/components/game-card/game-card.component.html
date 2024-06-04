@@ -5,8 +5,10 @@
   >
     <img class="game-image" src="../../../assets/exemple-game.png" alt="" />
     <figcaption class="container-figcaption">
-      <p class="game-image-title">Final Fantasy VII</p>
-      <p>Metacritic: <strong>9.8</strong></p>
+      <p class="game-image-title">{{ gameOverview.name }}</p>
+      <p>
+        Metacritic: <strong>{{ gameOverview.metacritic }}</strong>
+      </p>
     </figcaption>
 
     <app-button-add-to-favorite
@@ -14,5 +16,5 @@
       size="small"
     ></app-button-add-to-favorite>
   </figure>
-  <h3 class="game-title">Final Fantasy VII</h3>
+  <h3 class="game-title">{{ gameOverview.name }}</h3>
 </li>
