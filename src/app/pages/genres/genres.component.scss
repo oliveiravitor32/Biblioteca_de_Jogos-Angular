@@ -1,12 +1,12 @@
 @import "../../../styles.scss";
 
-.categories-section {
+.genres-section {
   width: 100%;
   height: 100%;
   padding-top: 120px;
-  background-image: url("../../../assets/categories-page-bg.svg");
+  background-image: url("../../../assets/genres-page-bg.svg");
 
-  .container-categories {
+  .container-genres {
     margin: 0 auto;
     width: 80%;
     height: 100%;
@@ -18,7 +18,7 @@
       margin-bottom: 20px;
     }
 
-    .container-category-cards {
+    .container-genre-cards {
       display: flex;
       flex-wrap: wrap;
       gap: 40px;

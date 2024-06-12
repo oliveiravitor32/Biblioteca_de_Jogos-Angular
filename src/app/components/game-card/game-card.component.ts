@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+
 import { IGameOverview } from '../../interfaces/game/game-overview.interface';
 
 @Component({
@@ -35,9 +35,5 @@ export class GameCardComponent {
     movies_count: 0,
   };
 
-  constructor(private router: Router) {}
-
-  navigateToGameDetailsPage() {
-    this.router.navigate(['/game-details']);
-  }
+  constructor() {}
 }

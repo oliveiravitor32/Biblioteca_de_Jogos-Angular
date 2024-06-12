@@ -15,7 +15,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'game-details',
+    path: 'game-details/:id',
     loadChildren: () =>
       import('./pages/game-details/game-details.module').then(
         (m) => m.GameDetailsModule
@@ -23,11 +23,9 @@ const routes: Routes = [
   },
 
   {
-    path: 'categories',
+    path: 'genres',
     loadChildren: () =>
-      import('./pages/categories/categories.module').then(
-        (m) => m.CategoriesModule
-      ),
+      import('./pages/genres/genres.module').then((m) => m.GenresModule),
   },
 ];
 

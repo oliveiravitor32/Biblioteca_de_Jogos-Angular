@@ -10,19 +10,40 @@
   <section>
     <h2>Novos lançamentos</h2>
     <ul class="container-games">
-      <app-game-card [gameOverview]="game"></app-game-card>
-      <app-game-card [gameOverview]="game"></app-game-card>
-      <app-game-card [gameOverview]="game"></app-game-card>
-      <app-game-card [gameOverview]="game"></app-game-card>
+      @for (game of newReleasedGames; track $index) {
+      <li>
+        <app-game-card
+          [gameOverview]="game"
+          (click)="onSelectGame(newReleasedGames, $index)"
+        ></app-game-card>
+      </li>
+      }
     </ul>
   </section>
   <section>
     <h2>Populares</h2>
     <ul class="container-games">
-      <app-game-card [gameOverview]="game"></app-game-card>
-      <app-game-card [gameOverview]="game"></app-game-card>
-      <app-game-card [gameOverview]="game"></app-game-card>
-      <app-game-card [gameOverview]="game"></app-game-card>
+      @for (game of popularGames; track $index) {
+      <li>
+        <app-game-card
+          [gameOverview]="game"
+          (click)="onSelectGame(popularGames, $index)"
+        ></app-game-card>
+      </li>
+      }
+    </ul>
+  </section>
+  <section>
+    <h2>Relevantes</h2>
+    <ul class="container-games">
+      @for (game of relevantGames; track $index) {
+      <li>
+        <app-game-card
+          [gameOverview]="game"
+          (click)="onSelectGame(relevantGames, $index)"
+        ></app-game-card>
+      </li>
+      }
     </ul>
   </section>
 </main>
