@@ -58,12 +58,15 @@ export class HomeComponent implements OnInit {
     this.game,
   ];
 
-  onSelectGame(gameList: IGameOverview[], index: number) {
-    const selectedGame = gameList[index];
-
+  onSelectGame(selectedGame: IGameOverview) {
+    console.log('selecionou jogo');
     this.gameService.onSelectGame(selectedGame);
 
     this.router.navigate(['game-details/' + selectedGame.id]);
+  }
+
+  onFavoriteGame(selectedGame: IGameOverview) {
+    console.log('favoritou jogo');
   }
 
   constructor(private gameService: GameService, private router: Router) {}

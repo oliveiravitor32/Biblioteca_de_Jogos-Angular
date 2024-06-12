@@ -13,8 +13,9 @@
       @for (game of newReleasedGames; track $index) {
       <li>
         <app-game-card
-          [gameOverview]="game"
-          (click)="onSelectGame(newReleasedGames, $index)"
+          [game]="game"
+          (selectGameEmmiter)="onSelectGame($event)"
+          (favoriteGameEmmiter)="onFavoriteGame($event)"
         ></app-game-card>
       </li>
       }
@@ -26,8 +27,9 @@
       @for (game of popularGames; track $index) {
       <li>
         <app-game-card
-          [gameOverview]="game"
-          (click)="onSelectGame(popularGames, $index)"
+          [game]="game"
+          (selectGameEmmiter)="onSelectGame($event)"
+          (favoriteGameEmmiter)="onFavoriteGame($event)"
         ></app-game-card>
       </li>
       }
@@ -39,8 +41,9 @@
       @for (game of relevantGames; track $index) {
       <li>
         <app-game-card
-          [gameOverview]="game"
-          (click)="onSelectGame(relevantGames, $index)"
+          [game]="game"
+          (selectGameEmmiter)="onSelectGame($event)"
+          (favoriteGameEmmiter)="onFavoriteGame($event)"
         ></app-game-card>
       </li>
       }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { IGameOverview } from '../../interfaces/game/game-overview.interface';
 
@@ -8,7 +8,7 @@ import { IGameOverview } from '../../interfaces/game/game-overview.interface';
   styleUrl: './game-card.component.scss',
 })
 export class GameCardComponent {
-  @Input({ required: true }) gameOverview: IGameOverview = {
+  @Input({ required: true }) game: IGameOverview = {
     id: 0,
     name: '',
     released: undefined,
@@ -35,5 +35,15 @@ export class GameCardComponent {
     movies_count: 0,
   };
 
-  constructor() {}
+  @Output() favoriteGameEmmiter = new EventEmitter<IGameOverview>();
+
+  @Output() selectGameEmmiter = new EventEmitter<IGameOverview>();
+
+  onFavoriteGame() {
+    this.favoriteGameEmmiter.emit(this.game);
+  }
+
+  onSelectGame() {
+    this.selectGameEmmiter.emit(this.game);
+  }
 }
