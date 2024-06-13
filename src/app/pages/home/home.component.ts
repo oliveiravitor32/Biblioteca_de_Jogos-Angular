@@ -36,6 +36,8 @@ export class HomeComponent implements OnInit {
     movies_count: 0,
   };
 
+  loading: boolean = true;
+
   newReleasedGames: IGameOverview[] = [
     this.game,
     this.game,

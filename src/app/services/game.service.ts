@@ -68,6 +68,10 @@ export class GameService {
     this.selectedGame = selectedGame;
   }
 
+  getSelectedGame(): IGameOverview {
+    return this.selectedGame;
+  }
+
   getGameGenres() {}
 
   getNewGamesRealeased(): IGameOverview[] {
@@ -81,4 +85,6 @@ export class GameService {
   getRelevantGames(): IGameOverview[] {
     return [];
   }
+
+  getGameDetailsById(id: number) {}
 }

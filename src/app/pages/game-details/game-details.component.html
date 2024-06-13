@@ -6,6 +6,8 @@
     ></div>
     <div class="wrapper-title-description">
       <h1>Final Fantasy VII</h1>
+
+      @if (!loading) {
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, sequi
         laudantium? Debitis molestiae neque provident delectus laborum dolorum
@@ -18,7 +20,11 @@
       <app-button-add-to-favorite
         size="large"
         (click)="onFavoriteGame()"
+        class="fav-button"
       ></app-button-add-to-favorite>
+      } @else {
+      <mat-spinner></mat-spinner>
+      }
     </div>
     <app-carousel></app-carousel>
   </section>
@@ -32,12 +38,14 @@
           </div>
         </div>
         <div class="meta-game-info-item">
-          <span>Genero</span>
-          <p>Ação, Aventura, Um Jogador</p>
-        </div>
-        <div class="meta-game-info-item">
           <span>Data de lançamento</span>
           <p>10/08/2006</p>
+        </div>
+
+        @if(!loading) {
+        <div class="meta-game-info-item">
+          <span>Genero</span>
+          <p>Ação, Aventura, Um Jogador</p>
         </div>
         <div class="meta-game-info-item">
           <span>Desenvolvedor</span>
@@ -51,8 +59,10 @@
           <span>Classificação etária</span>
           <p>12+</p>
         </div>
+        }
       </div>
       <div class="container-game-requirements-pc">
+        @if(!loading) {
         <h2>Requisitos do sistema para PC</h2>
         <div class="wrapper-requirements-pc">
           <strong class="strong-text">Mínimo:</strong>
@@ -88,10 +98,14 @@
             <li>Armazenamento: 7 GB de espaço disponível</li>
           </ul>
         </div>
+        }
       </div>
     </article>
     <section class="game-purchase-info-section">
       <ul class="game-purchase-info-list">
+        <li>Metacritic: <span>9.5</span></li>
+        <li>Métrica em geral: <span>8.2</span></li>
+        @if(!loading) {
         <li>
           <div class="container-store-list">
             <h3>Onde adquirir</h3>
@@ -114,12 +128,12 @@
             </ul>
           </div>
         </li>
-        <li>Metacritic: <span>9.5</span></li>
-        <li>Métrica em geral: <span>8.2</span></li>
         <li>
           Site do jogo: <a class="styled-hover-text">www.gameon.com.br</a>
         </li>
+        }
       </ul>
     </section>
+    @if(loading) { <mat-spinner class="game-info-spinner"></mat-spinner>}
   </section>
 </div>
