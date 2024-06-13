@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IGameOverview } from '../interfaces/game/game-overview.interface';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -32,7 +33,7 @@ export class GameService {
     movies_count: 0,
   };
 
-  favoritedGames: IGameOverview[] = [
+  favoriteGames: IGameOverview[] = [
     /*
     {
       id: 0,
@@ -62,10 +63,11 @@ export class GameService {
     }, */
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   onSelectGame(selectedGame: IGameOverview): void {
     this.selectedGame = selectedGame;
+    this.router.navigate(['game-details/' + selectedGame.id]);
   }
 
   getSelectedGame(): IGameOverview {
@@ -87,4 +89,23 @@ export class GameService {
   }
 
   getGameDetailsById(id: number) {}
+
+  updateFavoriteGames(gameToUpdate: IGameOverview): boolean {
+    const isGameAlreadyFavorited = this.favoriteGames.find(
+      (game) => game.id === gameToUpdate.id
+    );
+    if (!isGameAlreadyFavorited) {
+      this.favoriteGames.push(gameToUpdate);
+      return true;
+    } else {
+      this.favoriteGames = this.favoriteGames.filter(
+        (game) => game.id !== gameToUpdate.id
+      );
+    }
+    return false;
+  }
+
+  getFavoriteGames(): IGameOverview[] {
+    return this.favoriteGames;
+  }
 }

@@ -50,14 +50,12 @@ export class GameDetailsComponent implements OnInit {
     this.gameService.getGameDetailsById(this.game.id);
   }
 
-  onFavoriteGame() {
-    const isGameAlreadyFavorited = this.gameService.favoritedGames.find(
-      (game) => game.id === game.id
-    );
+  onToggleFavoriteGame() {
+    const addedSuccessfully = this.gameService.updateFavoriteGames(this.game);
 
-    const snackBarMessage = isGameAlreadyFavorited
-      ? 'Jogo removido dos favoritos!'
-      : 'Jogo adicionado aos favoritos!';
+    const snackBarMessage = addedSuccessfully
+      ? 'Jogo adicionado aos favoritos!'
+      : 'Jogo removido dos favoritos!';
 
     this._snackBar.open(snackBarMessage, '', {
       duration: 1200,

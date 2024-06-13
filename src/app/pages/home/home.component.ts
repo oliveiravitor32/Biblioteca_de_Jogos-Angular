@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
     movies_count: 0,
   };
 
-  loading: boolean = true;
+  loading: boolean = false;
 
   newReleasedGames: IGameOverview[] = [
     this.game,
@@ -60,13 +60,10 @@ export class HomeComponent implements OnInit {
     this.game,
   ];
 
-  constructor(private gameService: GameService, private router: Router) {}
+  constructor(private gameService: GameService) {}
 
   onSelectGame(selectedGame: IGameOverview) {
-    console.log('selecionou jogo');
     this.gameService.onSelectGame(selectedGame);
-
-    this.router.navigate(['game-details/' + selectedGame.id]);
   }
 
   ngOnInit(): void {
