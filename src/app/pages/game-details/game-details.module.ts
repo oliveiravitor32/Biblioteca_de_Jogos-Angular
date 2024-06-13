@@ -6,6 +6,7 @@ import { GameDetailsComponent } from './game-details.component';
 import { SharedDirectivesModule } from '../../directives/shared-directives.module';
 import { SharedComponentsModule } from './../../components/shared-components.module';
 import { CarouselComponent } from './carousel/carousel.component';
+import { SharedMaterialModule } from '../../shared/shared-material/shared-material.module';
 
 @NgModule({
   declarations: [GameDetailsComponent, CarouselComponent],
@@ -14,6 +15,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     GameDetailsRoutingModule,
     SharedComponentsModule,
     SharedDirectivesModule,
+    SharedMaterialModule,
   ],
 })
 export class GameDetailsModule {}

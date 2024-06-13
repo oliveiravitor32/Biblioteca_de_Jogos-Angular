@@ -7,14 +7,15 @@
 </div>
 
 <main>
+  @if(!loading) {
   <section>
     <h2>Novos lançamentos</h2>
     <ul class="container-games">
       @for (game of newReleasedGames; track $index) {
       <li>
         <app-game-card
-          [gameOverview]="game"
-          (click)="onSelectGame(newReleasedGames, $index)"
+          [game]="game"
+          (selectGameEmmiter)="onSelectGame($event)"
         ></app-game-card>
       </li>
       }
@@ -26,8 +27,8 @@
       @for (game of popularGames; track $index) {
       <li>
         <app-game-card
-          [gameOverview]="game"
-          (click)="onSelectGame(popularGames, $index)"
+          [game]="game"
+          (selectGameEmmiter)="onSelectGame($event)"
         ></app-game-card>
       </li>
       }
@@ -39,11 +40,12 @@
       @for (game of relevantGames; track $index) {
       <li>
         <app-game-card
-          [gameOverview]="game"
-          (click)="onSelectGame(relevantGames, $index)"
+          [game]="game"
+          (selectGameEmmiter)="onSelectGame($event)"
         ></app-game-card>
       </li>
       }
     </ul>
   </section>
+  } @else { <mat-spinner class="main-spinner" diameter="150"></mat-spinner> }
 </main>
