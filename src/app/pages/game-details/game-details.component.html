@@ -15,7 +15,10 @@
         architecto dolore voluptate molestias, doloremque obcaecati pariatur
         ipsa nesciunt eos, excepturi voluptatibus odio eveniet accusamus.
       </p>
-      <app-button-add-to-favorite size="large"></app-button-add-to-favorite>
+      <app-button-add-to-favorite
+        size="large"
+        (click)="onFavoriteGame()"
+      ></app-button-add-to-favorite>
     </div>
     <app-carousel></app-carousel>
   </section>

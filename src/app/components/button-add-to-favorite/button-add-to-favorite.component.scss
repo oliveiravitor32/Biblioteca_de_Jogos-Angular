@@ -27,6 +27,15 @@
       fill: $light-color;
     }
   }
+
+  &:active {
+    transform: scale(1.02);
+    background-color: $tertiary-color;
+  }
+
+  &:active svg {
+    fill: $contrast-color;
+  }
 }
 
 .button-add-to-favorite.small {

@@ -32,7 +32,35 @@ export class GameService {
     movies_count: 0,
   };
 
-  favoritedGames: IGameOverview[] = [];
+  favoritedGames: IGameOverview[] = [
+    /*
+    {
+      id: 0,
+      name: 'Final Fantasy VII',
+      released: undefined,
+      background_image: '',
+      metacritic: 9.8,
+      platforms: [
+        {
+          platform: {
+            id: 0,
+            slug: '',
+            name: '',
+          },
+          released_at: '',
+          requirements: {
+            minimum: '',
+            recommended: '',
+          },
+        },
+      ],
+      description: '',
+      website: '',
+      game_series_count: 0,
+      screenshots_count: 0,
+      movies_count: 0,
+    }, */
+  ];
 
   constructor() {}
 

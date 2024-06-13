@@ -58,18 +58,14 @@ export class HomeComponent implements OnInit {
     this.game,
   ];
 
+  constructor(private gameService: GameService, private router: Router) {}
+
   onSelectGame(selectedGame: IGameOverview) {
     console.log('selecionou jogo');
     this.gameService.onSelectGame(selectedGame);
 
     this.router.navigate(['game-details/' + selectedGame.id]);
   }
-
-  onFavoriteGame(selectedGame: IGameOverview) {
-    console.log('favoritou jogo');
-  }
-
-  constructor(private gameService: GameService, private router: Router) {}
 
   ngOnInit(): void {
     this.getNewGamesRealeased();

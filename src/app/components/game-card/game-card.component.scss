@@ -11,18 +11,6 @@
     font-size: 18px;
     white-space: nowrap;
   }
-
-  & .button-favorite {
-    position: absolute;
-    bottom: 35px;
-    left: 20px;
-    z-index: 3;
-    display: none;
-  }
-  &:hover .button-favorite {
-    display: block;
-    z-index: 3;
-  }
 }
 
 .container-game-card-figure {
