@@ -10,42 +10,24 @@
   @if(!loading) {
   <section>
     <h2>Novos lançamentos</h2>
-    <ul class="container-games">
-      @for (game of newReleasedGames; track $index) {
-      <li>
-        <app-game-card
-          [game]="game"
-          (selectGameEmmiter)="onSelectGame($event)"
-        ></app-game-card>
-      </li>
-      }
-    </ul>
+    <app-game-list-carousel
+      [gameList]="newReleasedGames"
+      (selectGameEmmiter)="onSelectGame($event)"
+    ></app-game-list-carousel>
   </section>
   <section>
     <h2>Populares</h2>
-    <ul class="container-games">
-      @for (game of popularGames; track $index) {
-      <li>
-        <app-game-card
-          [game]="game"
-          (selectGameEmmiter)="onSelectGame($event)"
-        ></app-game-card>
-      </li>
-      }
-    </ul>
+    <app-game-list-carousel
+      [gameList]="popularGames"
+      (selectGameEmmiter)="onSelectGame($event)"
+    ></app-game-list-carousel>
   </section>
   <section>
     <h2>Relevantes</h2>
-    <ul class="container-games">
-      @for (game of relevantGames; track $index) {
-      <li>
-        <app-game-card
-          [game]="game"
-          (selectGameEmmiter)="onSelectGame($event)"
-        ></app-game-card>
-      </li>
-      }
-    </ul>
+    <app-game-list-carousel
+      [gameList]="relevantGames"
+      (selectGameEmmiter)="onSelectGame($event)"
+    ></app-game-list-carousel>
   </section>
   } @else { <mat-spinner class="main-spinner" diameter="150"></mat-spinner> }
 </main>

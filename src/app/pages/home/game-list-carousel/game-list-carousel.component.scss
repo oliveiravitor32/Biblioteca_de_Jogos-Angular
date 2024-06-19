@@ -1,0 +1,74 @@
+@import "../../../../styles.scss";
+
+.container-carousel {
+  margin-top: 20px;
+  position: relative;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+
+  & .carousel-button {
+    background-color: transparent;
+
+    & .off-screen {
+      position: absolute;
+      left: -9999px;
+    }
+
+    & svg {
+      stroke: $contrast-color;
+      fill: transparent;
+    }
+
+    &:hover svg {
+      cursor: pointer;
+      transform: scale(1.1);
+      fill: $purple-color;
+    }
+  }
+
+  & .carousel-games {
+    position: relative;
+    overflow: hidden;
+
+    & .carousel-inner {
+      position: relative;
+      display: flex;
+      gap: 40px;
+      width: 100%;
+      transition: all 0.2s linear;
+
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        bottom: 0;
+        height: 100%;
+        width: 20px;
+        left: 0;
+        background: linear-gradient(
+          270deg,
+          hsla(0, 0%, 100%, 0),
+          $tertiary-color 28px 100%
+        );
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        bottom: 0;
+        height: 100%;
+        width: 20px;
+        right: 0;
+        background: linear-gradient(
+          90deg,
+          hsla(0, 0%, 100%, 0),
+          $tertiary-color 28px 100%
+        );
+      }
+    }
+  }
+}

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { IGameOverview } from '../../interfaces/game/game-overview.interface';
-import { Router } from '@angular/router';
 import { GameService } from '../../services/game.service';
 
 @Component({
@@ -39,6 +38,11 @@ export class HomeComponent implements OnInit {
   loading: boolean = false;
 
   newReleasedGames: IGameOverview[] = [
+    this.game,
+    this.game,
+    this.game,
+    this.game,
+    this.game,
     this.game,
     this.game,
     this.game,
