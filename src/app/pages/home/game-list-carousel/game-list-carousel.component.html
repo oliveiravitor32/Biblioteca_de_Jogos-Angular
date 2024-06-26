@@ -16,7 +16,7 @@
   <ul class="carousel-games">
     <div class="carousel-inner" #carouselInner>
       @for (game of gameList; track $index) {
-      <li>
+      <li #carouselItem>
         <app-game-card
           [game]="game"
           (selectGameEmmiter)="onSelectGame($event)"

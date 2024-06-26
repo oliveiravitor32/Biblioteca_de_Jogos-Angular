@@ -1,6 +1,7 @@
 @import "../../../../styles.scss";
 
 .container-carousel {
+  width: 80%;
   margin-top: 20px;
   position: relative;
   display: flex;
@@ -37,8 +38,8 @@
       position: relative;
       display: flex;
       gap: 40px;
-      width: 100%;
-      transition: all 0.2s linear;
+      width: auto;
+      transition: all 1s linear;
 
       &::before {
         content: "";
