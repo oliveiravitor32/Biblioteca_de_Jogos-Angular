@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IGameGenre } from '../../../interfaces/game-genre.interface';
 
 @Component({
   selector: 'app-genre-card',
   templateUrl: './genre-card.component.html',
   styleUrl: './genre-card.component.scss',
 })
-export class GenreCardComponent {}
+export class GenreCardComponent {
+  @Input({ required: true }) genre!: IGameGenre;
+}

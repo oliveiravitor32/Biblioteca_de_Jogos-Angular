@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GameDetailsComponent implements OnInit {
   game: IDetailedGame = {} as IDetailedGame;
+  cachedImagesForCarrousel: string[] = [];
 
   loading: boolean = false;
 
@@ -34,10 +35,13 @@ export class GameDetailsComponent implements OnInit {
 
     const gameId = this.route.snapshot.paramMap.get('id');
 
-    //adicionar subscribe para colocar spinner de loading enquando processa a requisiçõa
     this.gameService.getGameDetailsById(gameId!).subscribe({
       next: (resp) => {
         this.game = resp;
+        this.cachedImagesForCarrousel = [
+          resp.background_image,
+          resp.background_image_additional,
+        ];
         this.loading = false;
       },
     });

@@ -19,7 +19,10 @@
   </button>
   <div class="carousel-inner">
     <div class="carousel-item">
-      <img src="../../../assets/game-details-example-640x400.jpg" alt="..." />
+      @if(cachedImages.length === 0 ) {
+      <mat-spinner class="game-info-spinner"></mat-spinner>} @else {
+      <img [src]="cachedImages[0]" alt="..." />
+      }
     </div>
   </div>
   <button

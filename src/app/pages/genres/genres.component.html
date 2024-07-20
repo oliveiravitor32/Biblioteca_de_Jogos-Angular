@@ -2,17 +2,11 @@
   <div class="container-genres">
     <h2>Gêneros</h2>
     <div class="container-genre-cards">
-      <app-genre-card></app-genre-card>
-      <app-genre-card></app-genre-card>
-      <app-genre-card></app-genre-card>
-      <app-genre-card></app-genre-card>
-      <app-genre-card></app-genre-card>
-      <app-genre-card></app-genre-card>
-      <app-genre-card></app-genre-card>
-      <app-genre-card></app-genre-card>
-      <app-genre-card></app-genre-card>
-      <app-genre-card></app-genre-card>
-      <app-genre-card></app-genre-card>
+      @for(genre of genreList.results; track $index) {
+      <app-genre-card [genre]="genre"></app-genre-card>
+      } @if(loading){
+      <mat-spinner></mat-spinner>
+      }
     </div>
   </div>
 </section>

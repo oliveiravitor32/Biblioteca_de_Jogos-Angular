@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { IGameList } from '../interfaces/game/game-list.interface';
 import { IDetailedGame } from '../interfaces/game/detailed-game.interface';
+import { IListGameGenres } from '../interfaces/list-game-genres.interface';
 
 const api: string = 'https://api.rawg.io/api';
 const key: string = 'fca3f14ca6b2481dbbd968ff8c91ff65';
@@ -55,7 +56,9 @@ export class GameService {
     return this.selectedGame;
   }
 
-  getGameGenres() {}
+  getGameGenres(): Observable<IListGameGenres> {
+    return this.http.get<IListGameGenres>(`${api}/genres?key=${key}`);
+  }
 
   getNewGamesRealeased(): Observable<IGameList> {
     return this.http.get<IGameList>(

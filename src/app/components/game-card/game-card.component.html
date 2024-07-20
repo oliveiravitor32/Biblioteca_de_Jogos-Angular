@@ -1,6 +1,10 @@
 <div class="container-game-card">
   <figure class="container-game-card-figure" (click)="onSelectGame()">
-    <img class="game-image" [src]="game.background_image" alt="" />
+    <img
+      class="game-image"
+      [src]="game.background_image"
+      alt="Ilustração do jogo"
+    />
     <figcaption class="container-figcaption">
       <p class="game-image-title">{{ game.name }}</p>
       <p>

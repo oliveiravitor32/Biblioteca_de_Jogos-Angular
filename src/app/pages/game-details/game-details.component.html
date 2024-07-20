@@ -6,7 +6,6 @@
     ></div>
     <div class="wrapper-title-description">
       <h1>{{ game.name }}</h1>
-
       @if (!loading) {
       <p>
         {{ game.description_raw }}
@@ -17,10 +16,10 @@
         class="fav-button"
       ></app-button-add-to-favorite>
       } @else {
-      <mat-spinner></mat-spinner>
+      <mat-spinner class="game-apresentation-spinner"></mat-spinner>
       }
     </div>
-    <app-carousel></app-carousel>
+    <app-carousel [cachedImages]="cachedImagesForCarrousel"></app-carousel>
   </section>
   <section class="game-info-section">
     <article class="article-meta-game-info">
