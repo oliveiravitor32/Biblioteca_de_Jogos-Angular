@@ -8,32 +8,7 @@ import { IGameOverview } from '../../interfaces/game/game-overview.interface';
   styleUrl: './game-card.component.scss',
 })
 export class GameCardComponent {
-  @Input({ required: true }) game: IGameOverview = {
-    id: 0,
-    name: '',
-    released: undefined,
-    background_image: '',
-    metacritic: 0,
-    platforms: [
-      {
-        platform: {
-          id: 0,
-          slug: '',
-          name: '',
-        },
-        released_at: '',
-        requirements: {
-          minimum: '',
-          recommended: '',
-        },
-      },
-    ],
-    description: '',
-    website: '',
-    game_series_count: 0,
-    screenshots_count: 0,
-    movies_count: 0,
-  };
+  @Input({ required: true }) game: IGameOverview = {} as IGameOverview;
 
   @Output() favoriteGameEmmiter = new EventEmitter<IGameOverview>();
 

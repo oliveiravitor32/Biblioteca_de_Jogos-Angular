@@ -1,15 +1,59 @@
 import { IPlatforms } from '../game-platforms.interface';
+import { IGameOverview } from './game-overview.interface';
 
-export interface IDetailedGame {
+export interface IDetailedGame extends IGameOverview {
   id: number;
   slug: string;
   name: string;
   name_original: string;
   description: string;
+  description_raw: string;
   metacritic: number;
   metacritic_platforms: [
     {
       metascore: number;
+      url: string;
+    }
+  ];
+  genres: [
+    {
+      id: number;
+      name: string;
+      slug: string;
+      games_count: number;
+      image_background: string;
+    }
+  ];
+
+  publishers: [
+    {
+      games_count: number;
+      id: number;
+      image_background: string;
+      name: string;
+      slug: string;
+    }
+  ];
+  developers: [
+    {
+      id: number;
+      name: string;
+      slug: string;
+      games_count: number;
+      image_background: string;
+    }
+  ];
+  stores: [
+    {
+      id: number;
+      store: {
+        domain: string;
+        games_count: number;
+        id: number;
+        image_background: string;
+        name: string;
+        slug: string;
+      };
       url: string;
     }
   ];

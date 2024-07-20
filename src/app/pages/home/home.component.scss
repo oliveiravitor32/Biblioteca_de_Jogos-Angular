@@ -23,7 +23,15 @@ main {
     padding-left: 60px;
   }
 
-  & .main-spinner {
-    margin: 40px auto 0 auto;
+  section {
+    position: relative;
+
+    & .main-spinner {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0 auto;
+    }
   }
 }

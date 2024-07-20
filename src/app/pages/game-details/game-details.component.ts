@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { GameService } from '../../services/game.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IGameOverview } from '../../interfaces/game/game-overview.interface';
+import { IDetailedGame } from '../../interfaces/game/detailed-game.interface';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-game-details',
@@ -9,45 +11,36 @@ import { IGameOverview } from '../../interfaces/game/game-overview.interface';
   styleUrl: './game-details.component.scss',
 })
 export class GameDetailsComponent implements OnInit {
-  game: IGameOverview = {
-    id: 0,
-    name: '....',
-    released: undefined,
-    background_image: '',
-    metacritic: 9.8,
-    platforms: [
-      {
-        platform: {
-          id: 0,
-          slug: '',
-          name: '',
-        },
-        released_at: '',
-        requirements: {
-          minimum: '',
-          recommended: '',
-        },
-      },
-    ],
-    description: '',
-    website: '',
-    game_series_count: 0,
-    screenshots_count: 0,
-    movies_count: 0,
-  };
+  game: IDetailedGame = {} as IDetailedGame;
 
   loading: boolean = false;
 
   constructor(
     private gameService: GameService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.game = this.gameService.getSelectedGame();
+    this.loading = true;
+    // informações cacheds
+    if (this.gameService.getSelectedGame() != null) {
+      const selectedGame = this.gameService.getSelectedGame();
+
+      this.game.name = selectedGame.name;
+      this.game.background_image = selectedGame.background_image;
+      this.game.platforms = selectedGame.platforms;
+    }
+
+    const gameId = this.route.snapshot.paramMap.get('id');
 
     //adicionar subscribe para colocar spinner de loading enquando processa a requisiçõa
-    this.gameService.getGameDetailsById(this.game.id);
+    this.gameService.getGameDetailsById(gameId!).subscribe({
+      next: (resp) => {
+        this.game = resp;
+        this.loading = false;
+      },
+    });
   }
 
   onToggleFavoriteGame() {

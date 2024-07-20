@@ -8,47 +8,12 @@ import { GameService } from '../../services/game.service';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  game: IGameOverview = {
-    id: 0,
-    name: 'Final Fantasy VII',
-    released: undefined,
-    background_image: '',
-    metacritic: 9.8,
-    platforms: [
-      {
-        platform: {
-          id: 0,
-          slug: '',
-          name: '',
-        },
-        released_at: '',
-        requirements: {
-          minimum: '',
-          recommended: '',
-        },
-      },
-    ],
-    description: '',
-    website: '',
-    game_series_count: 0,
-    screenshots_count: 0,
-    movies_count: 0,
-  };
+  game: IGameOverview = {} as IGameOverview;
 
   loading: boolean = false;
 
-  newReleasedGames: IGameOverview[] = [
-    this.game,
-    this.game,
-    this.game,
-    this.game,
-    this.game,
-    this.game,
-    this.game,
-    this.game,
-    this.game,
-    this.game,
-  ];
+  newReleasedGames: IGameOverview[] = [];
+
   popularGames: IGameOverview[] = [
     this.game,
     this.game,
@@ -78,11 +43,19 @@ export class HomeComponent implements OnInit {
 
   getNewGamesRealeased() {
     //subscribe in get request to api
-    this.gameService.getNewGamesRealeased();
+    this.gameService.getNewGamesRealeased().subscribe({
+      next: (resp) => {
+        this.newReleasedGames = resp.results;
+      },
+    });
   }
   getPopularGames() {
     //subscribe in get request to api
-    this.gameService.getPopularGames();
+    this.gameService.getPopularGames().subscribe({
+      next: (resp) => {
+        this.popularGames = resp.results;
+      },
+    });
   }
   getRelevantGames() {
     //subscribe in get request to api

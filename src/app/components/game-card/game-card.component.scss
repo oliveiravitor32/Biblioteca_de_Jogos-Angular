@@ -46,7 +46,8 @@
     position: absolute;
     z-index: 1;
     height: 100%;
-    width: auto;
+    width: 130%;
+    transform: translateX(-10%);
   }
 
   & .container-figcaption {

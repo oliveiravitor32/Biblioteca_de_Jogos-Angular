@@ -1,37 +1,18 @@
 import { Injectable } from '@angular/core';
 import { IGameOverview } from '../interfaces/game/game-overview.interface';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { IGameList } from '../interfaces/game/game-list.interface';
+import { IDetailedGame } from '../interfaces/game/detailed-game.interface';
 
+const api: string = 'https://api.rawg.io/api';
+const key: string = 'fca3f14ca6b2481dbbd968ff8c91ff65';
 @Injectable({
   providedIn: 'root',
 })
 export class GameService {
-  selectedGame: IGameOverview = {
-    id: 0,
-    name: '',
-    released: undefined,
-    background_image: '',
-    metacritic: 0,
-    platforms: [
-      {
-        platform: {
-          id: 0,
-          slug: '',
-          name: '',
-        },
-        released_at: '',
-        requirements: {
-          minimum: '',
-          recommended: '',
-        },
-      },
-    ],
-    description: '',
-    website: '',
-    game_series_count: 0,
-    screenshots_count: 0,
-    movies_count: 0,
-  };
+  selectedGame: IGameOverview = {} as IGameOverview;
 
   favoriteGames: IGameOverview[] = [
     /*
@@ -63,7 +44,7 @@ export class GameService {
     }, */
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private http: HttpClient) {}
 
   onSelectGame(selectedGame: IGameOverview): void {
     this.selectedGame = selectedGame;
@@ -76,19 +57,25 @@ export class GameService {
 
   getGameGenres() {}
 
-  getNewGamesRealeased(): IGameOverview[] {
+  getNewGamesRealeased(): Observable<IGameList> {
+    return this.http.get<IGameList>(
+      `${api}/games?key=${key}&ordering=released`
+    );
+  }
+
+  getPopularGames(): Observable<IGameList> {
+    return this.http.get<IGameList>(`${api}/games?key=${key}`);
+  }
+
+  getRelevantGames(): IGameList[] {
     return [];
   }
 
-  getPopularGames(): IGameOverview[] {
-    return [];
+  getGameDetailsById(id: number | string): Observable<IDetailedGame> {
+    return this.http.get<IDetailedGame>(
+      `${api}/games/${id}?key=${key}&ordering=released`
+    );
   }
-
-  getRelevantGames(): IGameOverview[] {
-    return [];
-  }
-
-  getGameDetailsById(id: number) {}
 
   updateFavoriteGames(gameToUpdate: IGameOverview): boolean {
     const isGameAlreadyFavorited = this.favoriteGames.find(

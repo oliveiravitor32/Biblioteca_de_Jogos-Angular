@@ -2,20 +2,14 @@
   <section class="game-apresentation-section">
     <div
       class="game-art-background"
-      appBackgroundImage="assets/game-details-example-640x400.jpg"
+      [appBackgroundImage]="game.background_image"
     ></div>
     <div class="wrapper-title-description">
-      <h1>Final Fantasy VII</h1>
+      <h1>{{ game.name }}</h1>
 
       @if (!loading) {
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, sequi
-        laudantium? Debitis molestiae neque provident delectus laborum dolorum
-        laboriosam libero dicta fugit sunt nobis, nemo praesentium quaerat
-        quibusdam dolorem? Inventore. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Illum quas illo voluptas explicabo tempore minus
-        architecto dolore voluptate molestias, doloremque obcaecati pariatur
-        ipsa nesciunt eos, excepturi voluptatibus odio eveniet accusamus.
+        {{ game.description_raw }}
       </p>
       <app-button-add-to-favorite
         size="large"
@@ -39,25 +33,25 @@
         </div>
         <div class="meta-game-info-item">
           <span>Data de lançamento</span>
-          <p>10/08/2006</p>
+          <p>{{ game.released }}</p>
         </div>
 
         @if(!loading) {
         <div class="meta-game-info-item">
-          <span>Genero</span>
-          <p>Ação, Aventura, Um Jogador</p>
+          <span>Gêneros</span>
+          <p>{{ "buscar por request as informações faltantes" }}</p>
         </div>
         <div class="meta-game-info-item">
           <span>Desenvolvedor</span>
-          <p>Game Studios</p>
+          <p>{{ game.developers[0].name }}</p>
         </div>
         <div class="meta-game-info-item">
           <span>Produtora</span>
-          <p>Game Studios</p>
+          <p>{{ game.publishers[0].name }}</p>
         </div>
         <div class="meta-game-info-item">
           <span>Classificação etária</span>
-          <p>12+</p>
+          <p>{{ game.esrb_rating.name }}</p>
         </div>
         }
       </div>
@@ -103,33 +97,24 @@
     </article>
     <section class="game-purchase-info-section">
       <ul class="game-purchase-info-list">
-        <li>Metacritic: <span>9.5</span></li>
-        <li>Métrica em geral: <span>8.2</span></li>
+        <li>
+          Metacritic: <span>{{ game.metacritic }}</span>
+        </li>
         @if(!loading) {
         <li>
           <div class="container-store-list">
             <h3>Onde adquirir</h3>
             <ul class="store-list">
+              @for(store of game.stores; track $index ) {
               <li class="styled-hover-text">
-                <a href="https://www.google.com.br" target="_blank">Steam</a>
+                <a target="_blank">{{ store.store.name }}</a>
               </li>
-              <li class="styled-hover-text">
-                <a href="" target="_blank">GOG</a>
-              </li>
-              <li class="styled-hover-text">
-                <a href="" target="_blank">Play Store</a>
-              </li>
-              <li class="styled-hover-text">
-                <a href="" target="_blank">Playstation Store</a>
-              </li>
-              <li class="styled-hover-text">
-                <a href="" target="_blank">Xbox Store</a>
-              </li>
+              }
             </ul>
           </div>
         </li>
         <li>
-          Site do jogo: <a class="styled-hover-text">www.gameon.com.br</a>
+          Site do jogo: <a class="styled-hover-text">{{ game.website }}</a>
         </li>
         }
       </ul>
