@@ -2,13 +2,9 @@ import { IPlatforms } from '../game-platforms.interface';
 import { IGameOverview } from './game-overview.interface';
 
 export interface IDetailedGame extends IGameOverview {
-  id: number;
-  slug: string;
-  name: string;
   name_original: string;
   description: string;
   description_raw: string;
-  metacritic: number;
   metacritic_platforms: [
     {
       metascore: number;
@@ -24,7 +20,6 @@ export interface IDetailedGame extends IGameOverview {
       image_background: string;
     }
   ];
-
   publishers: [
     {
       games_count: number;
@@ -32,7 +27,7 @@ export interface IDetailedGame extends IGameOverview {
       image_background: string;
       name: string;
       slug: string;
-    }
+    } | undefined
   ];
   developers: [
     {
@@ -41,7 +36,7 @@ export interface IDetailedGame extends IGameOverview {
       slug: string;
       games_count: number;
       image_background: string;
-    }
+    } | undefined
   ];
   stores: [
     {
@@ -57,19 +52,9 @@ export interface IDetailedGame extends IGameOverview {
       url: string;
     }
   ];
-  released: Date;
-  tba: boolean;
-  updated: Date;
-  background_image: string;
   background_image_additional: string;
   website: string;
-  rating: number;
-  rating_top: number;
-  ratings: {};
   reactions: {};
-  added: number;
-  added_by_status: {};
-  playtime: number;
   screenshots_count: number;
   movies_count: number;
   creators_count: number;
@@ -90,10 +75,4 @@ export interface IDetailedGame extends IGameOverview {
   parents_count: number;
   additions_count: number;
   game_series_count: number;
-  esrb_rating: {
-    id: number;
-    slug: string;
-    name: string;
-  };
-  platforms: [IPlatforms];
 }

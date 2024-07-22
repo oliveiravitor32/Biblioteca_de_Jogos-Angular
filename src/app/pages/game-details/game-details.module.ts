@@ -7,6 +7,7 @@ import { SharedDirectivesModule } from '../../directives/shared-directives.modul
 import { SharedComponentsModule } from './../../components/shared-components.module';
 import { CarouselComponent } from './carousel/carousel.component';
 import { SharedMaterialModule } from '../../shared/shared-material/shared-material.module';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   declarations: [GameDetailsComponent, CarouselComponent],
@@ -16,6 +17,7 @@ import { SharedMaterialModule } from '../../shared/shared-material/shared-materi
     SharedComponentsModule,
     SharedDirectivesModule,
     SharedMaterialModule,
+    PipesModule
   ],
 })
 export class GameDetailsModule {}

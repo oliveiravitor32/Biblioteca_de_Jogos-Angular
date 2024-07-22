@@ -8,7 +8,7 @@
       <h1>{{ game.name }}</h1>
       @if (!loading) {
       <p>
-        {{ game.description_raw }}
+        {{ game.description_raw | gameDescription }}
       </p>
       <app-button-add-to-favorite
         size="large"
@@ -32,7 +32,7 @@
         </div>
         <div class="meta-game-info-item">
           <span>Data de lançamento</span>
-          <p>{{ game.released }}</p>
+          <p>{{ game.released | date:"dd/MM/yyyy" | dashIfEmpty}}</p>
         </div>
 
         @if(!loading) {
@@ -42,15 +42,15 @@
         </div>
         <div class="meta-game-info-item">
           <span>Desenvolvedor</span>
-          <p>{{ game.developers[0].name }}</p>
+          <p>{{ game.developers[0]?.name | dashIfEmpty }}</p>
         </div>
         <div class="meta-game-info-item">
           <span>Produtora</span>
-          <p>{{ game.publishers[0].name }}</p>
+          <p>{{ game.publishers[0]?.name | dashIfEmpty }}</p>
         </div>
         <div class="meta-game-info-item">
           <span>Classificação etária</span>
-          <p>{{ game.esrb_rating.name }}</p>
+          <p>{{ game.esrb_rating?.name | dashIfEmpty }}</p>
         </div>
         }
       </div>
@@ -97,7 +97,7 @@
     <section class="game-purchase-info-section">
       <ul class="game-purchase-info-list">
         <li>
-          Metacritic: <span>{{ game.metacritic }}</span>
+          Metacritic: <span>{{ game.metacritic | dashIfEmpty }}</span>
         </li>
         @if(!loading) {
         <li>
@@ -113,7 +113,7 @@
           </div>
         </li>
         <li>
-          Site do jogo: <a class="styled-hover-text">{{ game.website }}</a>
+          Site do jogo: <a class="styled-hover-text">{{ game.website | dashIfEmpty }}</a>
         </li>
         }
       </ul>

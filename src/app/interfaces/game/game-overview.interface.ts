@@ -22,7 +22,7 @@ export interface IGameOverview {
     id: number;
     slug: string;
     name: string;
-  };
+  } | undefined;
   platforms: [IPlatforms];
 }
 
