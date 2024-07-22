@@ -1,4 +1,6 @@
+import { IGameGenre } from '../../interfaces/game-genre.interface';
 import { IListGameGenres } from '../../interfaces/list-game-genres.interface';
+import { CacheService } from '../../services/cache.service';
 import { GameService } from './../../services/game.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,19 +10,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './genres.component.scss',
 })
 export class GenresComponent implements OnInit {
-  genreList: IListGameGenres = {} as IListGameGenres;
+  genreList: IGameGenre[] = [];
 
-  constructor(private gameService: GameService) {}
+  constructor(private gameService: GameService, private cacheService: CacheService) {}
 
   loading: boolean = false;
 
   ngOnInit(): void {
     this.loading = true;
-    this.gameService.getGameGenres().subscribe({
-      next: (resp) => {
-        this.loading = false;
-        this.genreList = resp;
-      },
-    });
+    if (this.cacheService.getGenresCache().length != 0) {
+      this.genreList = this.cacheService.getGenresCache();
+      this.loading = false;
+    } else {
+      this.gameService.getGameGenres().subscribe({
+        next: (resp) => {
+          this.loading = false;
+
+          this.cacheService.setGenresCache(resp.results);
+
+          this.genreList = resp.results;
+        },
+      });
+    }
   }
 }

@@ -2,7 +2,7 @@
   <div class="container-genres">
     <h2>Gêneros</h2>
     <div class="container-genre-cards">
-      @for(genre of genreList.results; track $index) {
+      @for(genre of genreList; track $index) {
       <app-genre-card [genre]="genre"></app-genre-card>
       } @if(loading){
       <mat-spinner></mat-spinner>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IGameOverview } from '../../interfaces/game/game-overview.interface';
 import { GameService } from '../../services/game.service';
+import { CacheService } from '../../services/cache.service';
 
 @Component({
   selector: 'app-home',
@@ -10,53 +11,49 @@ import { GameService } from '../../services/game.service';
 export class HomeComponent implements OnInit {
   game: IGameOverview = {} as IGameOverview;
 
-  loading: boolean = false;
-
   newReleasedGames: IGameOverview[] = [];
+  popularGames: IGameOverview[] = [];
+  relevantGames: IGameOverview[] = [];
 
-  popularGames: IGameOverview[] = [
-    this.game,
-    this.game,
-    this.game,
-    this.game,
-    this.game,
-  ];
-  relevantGames: IGameOverview[] = [
-    this.game,
-    this.game,
-    this.game,
-    this.game,
-    this.game,
-  ];
-
-  constructor(private gameService: GameService) {}
+  constructor(private gameService: GameService, private cacheService: CacheService) {}
 
   onSelectGame(selectedGame: IGameOverview) {
     this.gameService.onSelectGame(selectedGame);
   }
 
   ngOnInit(): void {
-    this.getNewGamesRealeased();
+    this.getNewGamesReleased();
     this.getPopularGames();
     this.getRelevantGames();
   }
 
-  getNewGamesRealeased() {
-    //subscribe in get request to api
-    this.gameService.getNewGamesRealeased().subscribe({
-      next: (resp) => {
-        this.newReleasedGames = resp.results;
-      },
-    });
+  getNewGamesReleased() {
+    if(this.cacheService.getHomePageCache("newGamesReleased") != null) {
+      this.newReleasedGames = this.cacheService.getHomePageCache("newGamesReleased")!;
+    } else {
+      this.gameService.getNewGamesReleased().subscribe({
+        next: (resp) => {
+          // colocar em cache
+          this.cacheService.setHomePageCache("newGamesReleased", resp.results);
+          this.newReleasedGames = resp.results;
+        },
+      });
+    }
   }
+
   getPopularGames() {
-    //subscribe in get request to api
-    this.gameService.getPopularGames().subscribe({
+    if(this.cacheService.getHomePageCache("popularGames") != null) {
+      this.popularGames = this.cacheService.getHomePageCache("popularGames")!;
+    } else {
+      this.gameService.getPopularGames().subscribe({
       next: (resp) => {
+        this.cacheService.setHomePageCache("popularGames", resp.results);
         this.popularGames = resp.results;
       },
     });
+    }
   }
+
   getRelevantGames() {
     //subscribe in get request to api
     this.gameService.getRelevantGames();

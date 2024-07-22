@@ -15,35 +15,7 @@ const key: string = 'fca3f14ca6b2481dbbd968ff8c91ff65';
 export class GameService {
   selectedGame: IGameOverview = {} as IGameOverview;
 
-  favoriteGames: IGameOverview[] = [
-    /*
-    {
-      id: 0,
-      name: 'Final Fantasy VII',
-      released: undefined,
-      background_image: '',
-      metacritic: 9.8,
-      platforms: [
-        {
-          platform: {
-            id: 0,
-            slug: '',
-            name: '',
-          },
-          released_at: '',
-          requirements: {
-            minimum: '',
-            recommended: '',
-          },
-        },
-      ],
-      description: '',
-      website: '',
-      game_series_count: 0,
-      screenshots_count: 0,
-      movies_count: 0,
-    }, */
-  ];
+  favoriteGames: IGameOverview[] = [];
 
   constructor(private router: Router, private http: HttpClient) {}
 
@@ -60,7 +32,7 @@ export class GameService {
     return this.http.get<IListGameGenres>(`${api}/genres?key=${key}`);
   }
 
-  getNewGamesRealeased(): Observable<IGameList> {
+  getNewGamesReleased(): Observable<IGameList> {
     return this.http.get<IGameList>(
       `${api}/games?key=${key}&ordering=released`
     );
