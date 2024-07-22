@@ -7,19 +7,18 @@
 
     <a routerLink="/" class="logo styled-hover-text">Biblioteca de Jogos</a>
 
-    <form action="">
+    <form [formGroup]="searchGameForm" (submit)="onSubmitSearchGame($event)">
       <div class="field-container">
         <input
           type="text"
-          name=""
-          id="search-input"
-          required=""
+          id="search-game-input"
+          formControlName="gameToSearch"
           placeholder="Ex: Mario"
         />
-        <label for="search-input">Buscar nome:</label>
+        <label for="search-game-input">Buscar nome:</label>
       </div>
 
-      <button>
+      <button type="submit" [disabled]="!searchGameForm.valid">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

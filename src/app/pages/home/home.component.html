@@ -1,39 +1,10 @@
 <div class="banner">
   <img
     src="../../../assets/banner-2000.png"
-    alt="Imagem de apresentação do site com logo escrito Biblioteca de Jogos"
+    alt="Imagem de apresentação do site com o logo que exibe o texto 'Biblioteca de Jogos"
   />
 </div>
 
 <main>
-  <section>
-    @if(popularGames.length === 0) {
-    <mat-spinner class="main-spinner" diameter="120"></mat-spinner>
-    }
-    <h2>Populares</h2>
-    <app-game-list-carousel
-      [gameList]="popularGames"
-      (selectGameEmmiter)="onSelectGame($event)"
-    ></app-game-list-carousel>
-  </section>
-  <section>
-    <h2>Novos lançamentos</h2>
-    @if(newReleasedGames.length === 0) {
-    <mat-spinner class="main-spinner" diameter="120"></mat-spinner>
-    }
-    <app-game-list-carousel
-      [gameList]="newReleasedGames"
-      (selectGameEmmiter)="onSelectGame($event)"
-    ></app-game-list-carousel>
-  </section>
-  <section>
-    @if(relevantGames.length === 0) {
-    <mat-spinner class="main-spinner" diameter="120"></mat-spinner>
-    }
-    <h2>Relevantes</h2>
-    <app-game-list-carousel
-      [gameList]="relevantGames"
-      (selectGameEmmiter)="onSelectGame($event)"
-    ></app-game-list-carousel>
-  </section>
+  <router-outlet></router-outlet> 
 </main>

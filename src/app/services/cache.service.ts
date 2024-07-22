@@ -7,18 +7,18 @@ import { IGameGenre } from '../interfaces/game-genre.interface';
 })
 export class CacheService {
 
-  private homePageCache: Map<string, IGameOverview[]> = new Map<string, IGameOverview[]>();
+  private homePageCaouselCache: Map<string, IGameOverview[]> = new Map<string, IGameOverview[]>();
 
   private genresCache: IGameGenre[] = [];
 
   constructor() {}
 
-  getHomePageCache(key: string) {
-    return this.homePageCache.get(key);
+  getHomePageCaouselCache(key: string) {
+    return this.homePageCaouselCache.get(key);
   }
 
-  setHomePageCache(key: string, gameList: IGameOverview[]) {
-    this.homePageCache.set(key, gameList)
+  setHomePageCaouselCache(key: string, gameList: IGameOverview[]) {
+    this.homePageCaouselCache.set(key, gameList)
   }
 
   getGenresCache() {

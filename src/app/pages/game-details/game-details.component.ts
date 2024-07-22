@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../../services/game.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { IGameOverview } from '../../interfaces/game/game-overview.interface';
 import { IDetailedGame } from '../../interfaces/game/detailed-game.interface';
 import { ActivatedRoute } from '@angular/router';
 

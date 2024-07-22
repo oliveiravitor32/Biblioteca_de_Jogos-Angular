@@ -1,0 +1,9 @@
+<div class="container">
+   @if(!loading) {
+      @for(game of gamesFound; track $index) {
+         <app-game-card [game]="game" (selectGameEmmiter)="onSelectGame($event)"></app-game-card>
+      }
+   } @else {
+      <mat-spinner></mat-spinner>
+   }
+</div>

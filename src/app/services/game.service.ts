@@ -70,4 +70,8 @@ export class GameService {
   getFavoriteGames(): IGameOverview[] {
     return this.favoriteGames;
   }
+
+  getGamesByName(name: string): Observable<IGameList> {
+    return this.http.get<IGameList>(`${api}/games?key=${key}&search=${name}`);
+  }
 }

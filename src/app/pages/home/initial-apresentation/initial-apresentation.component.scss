@@ -1,0 +1,29 @@
+@import "../../../../styles.scss";
+@import "../../../../styles/utils/illuminated-text-shadow";
+
+
+h2 {
+    font-weight: medium;
+    text-shadow: $illuminated-text-shadow;
+    font-size: 28px;
+    border-bottom: 1.8px solid $contrast-color;
+    padding-left: 60px;
+  }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 160px;
+    
+    & section {
+        position: relative;
+    
+    & .main-spinner {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0 auto;
+    }
+    }
+}

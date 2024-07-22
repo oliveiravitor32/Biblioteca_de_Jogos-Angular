@@ -104,5 +104,9 @@ form {
     &:active {
       background-color: rgb(167, 161, 161);
     }
+
+    &:disabled {
+      background-color: rgb(167, 161, 161);
+    }
   }
 }

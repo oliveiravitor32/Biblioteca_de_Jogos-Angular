@@ -7,7 +7,8 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { IGameOverview } from '../../../interfaces/game/game-overview.interface';
+import { IGameOverview } from '../../../../interfaces/game/game-overview.interface';
+
 
 @Component({
   selector: 'app-game-list-carousel',
