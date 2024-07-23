@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { IGameOverview } from '../interfaces/game/game-overview.interface';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { IGameList } from '../interfaces/game/game-list.interface';
+import { Observable, take } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { IGameListResponse } from '../interfaces/game/game-list-response.interface';
 import { IDetailedGame } from '../interfaces/game/detailed-game.interface';
-import { IListGameGenres } from '../interfaces/list-game-genres.interface';
+import { IGameGenreListResponse } from '../interfaces/genre/game-genres-list-response.interface';
 
-const api: string = 'https://api.rawg.io/api';
-const key: string = 'fca3f14ca6b2481dbbd968ff8c91ff65';
+const API_URL: string = 'https://api.rawg.io/api';
+const API_KEY: string = 'fca3f14ca6b2481dbbd968ff8c91ff65';
 @Injectable({
   providedIn: 'root',
 })
@@ -17,7 +17,10 @@ export class GameService {
 
   favoriteGames: IGameOverview[] = [];
 
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(
+    private readonly router: Router,
+    private readonly http: HttpClient
+  ) {}
 
   onSelectGame(selectedGame: IGameOverview): void {
     this.selectedGame = selectedGame;
@@ -28,42 +31,30 @@ export class GameService {
     return this.selectedGame;
   }
 
-  getGameGenres(): Observable<IListGameGenres> {
-    return this.http.get<IListGameGenres>(`${api}/genres?key=${key}`);
-  }
-
-  getNewGamesReleased(): Observable<IGameList> {
-    return this.http.get<IGameList>(
-      `${api}/games?key=${key}&ordering=released`
-    );
-  }
-
-  getPopularGames(): Observable<IGameList> {
-    return this.http.get<IGameList>(`${api}/games?key=${key}`);
-  }
-
-  getRelevantGames(): IGameList[] {
-    return [];
+  getGameGenres(): Observable<IGameGenreListResponse> {
+    return this.http
+      .get<IGameGenreListResponse>(`${API_URL}/genres?key=${API_KEY}`)
+      .pipe(take(1));
   }
 
   getGameDetailsById(id: number | string): Observable<IDetailedGame> {
-    return this.http.get<IDetailedGame>(
-      `${api}/games/${id}?key=${key}&ordering=released`
-    );
+    return this.http
+      .get<IDetailedGame>(`${API_URL}/games/${id}?key=${API_KEY}`)
+      .pipe(take(1));
   }
 
   updateFavoriteGames(gameToUpdate: IGameOverview): boolean {
     const isGameAlreadyFavorited = this.favoriteGames.find(
       (game) => game.id === gameToUpdate.id
     );
+
     if (!isGameAlreadyFavorited) {
       this.favoriteGames.push(gameToUpdate);
       return true;
-    } else {
-      this.favoriteGames = this.favoriteGames.filter(
-        (game) => game.id !== gameToUpdate.id
-      );
     }
+    this.favoriteGames = this.favoriteGames.filter(
+      (game) => game.id !== gameToUpdate.id
+    );
     return false;
   }
 
@@ -71,7 +62,26 @@ export class GameService {
     return this.favoriteGames;
   }
 
-  getGamesByName(name: string): Observable<IGameList> {
-    return this.http.get<IGameList>(`${api}/games?key=${key}&search=${name}`);
+  getGamesByName(name: string): Observable<IGameListResponse> {
+    //TESTE
+    this.http
+      .get<IGameListResponse>(`${API_URL}/tags?key=${API_KEY}&page_size=${80}`)
+      .subscribe({
+        next: (r) => {
+          console.log(r);
+        },
+      });
+    return this.http
+      .get<IGameListResponse>(`${API_URL}/games?key=${API_KEY}&search=${name}`)
+      .pipe(take(1));
+  }
+
+  getGamesByParams(params: HttpParams | undefined) {
+    if (!params) {
+      params = new HttpParams();
+    }
+    return this.http.get<IGameListResponse>(`${API_URL}/games?key=${API_KEY}`, {
+      params,
+    });
   }
 }

@@ -3,58 +3,74 @@ import { CacheService } from '../../../services/cache.service';
 import { GameService } from '../../../services/game.service';
 import { IGameOverview } from '../../../interfaces/game/game-overview.interface';
 
+import { IGameQueryParams } from '../../../interfaces/query-params-and-game-list-type/game-query-params.interface';
+import { EGameListType } from '../../../interfaces/query-params-and-game-list-type/enum-game-list-type.interface';
+import { HttpParams } from '@angular/common/http';
+
 @Component({
   selector: 'app-initial-apresentation',
   templateUrl: './initial-apresentation.component.html',
-  styleUrl: './initial-apresentation.component.scss'
+  styleUrl: './initial-apresentation.component.scss',
 })
 export class InitialApresentationComponent {
-
   newReleasedGames: IGameOverview[] = [];
   popularGames: IGameOverview[] = [];
   relevantGames: IGameOverview[] = [];
-  
+
   ngOnInit(): void {
-    this.getNewGamesReleased();
-    this.getPopularGames();
-    this.getRelevantGames();
+    const newGamesReleasedQueryParams: IGameQueryParams = {
+      query_type: EGameListType.NEW_GAMES_RELEASED,
+      params: new HttpParams().append('ordering', 'released'),
+    };
+    const popularGamesQueryParams: IGameQueryParams = {
+      query_type: EGameListType.POPULAR_GAMES,
+      params: new HttpParams(),
+    };
+
+    this.newReleasedGames = this.getGamesFromCache(newGamesReleasedQueryParams);
+    if (this.newReleasedGames.length === 0) {
+      this.getGamesFromGameService(newGamesReleasedQueryParams).subscribe({
+        next: (resp) => {
+          this.newReleasedGames = resp.results;
+        },
+      });
+    }
+
+    this.popularGames = this.getGamesFromCache(popularGamesQueryParams);
+    if (this.popularGames.length === 0) {
+      this.getGamesFromGameService(popularGamesQueryParams).subscribe({
+        next: (resp) => {
+          this.popularGames = resp.results;
+        },
+      });
+    }
   }
 
   onSelectGame(selectedGame: IGameOverview) {
     this.gameService.onSelectGame(selectedGame);
   }
 
-  constructor(private gameService: GameService, private cacheService: CacheService) {}
-
-  getNewGamesReleased() {
-    if(this.cacheService.getHomePageCaouselCache("newGamesReleased") != null) {
-      this.newReleasedGames = this.cacheService.getHomePageCaouselCache("newGamesReleased")!;
-    } else {
-      this.gameService.getNewGamesReleased().subscribe({
-        next: (resp) => {
-          // colocar em cache
-          this.cacheService.setHomePageCaouselCache("newGamesReleased", resp.results);
-          this.newReleasedGames = resp.results;
-        },
-      });
-    }
-  }
-
-  getPopularGames() {
-    if(this.cacheService.getHomePageCaouselCache("popularGames") != null) {
-      this.popularGames = this.cacheService.getHomePageCaouselCache("popularGames")!;
-    } else {
-      this.gameService.getPopularGames().subscribe({
-      next: (resp) => {
-        this.cacheService.setHomePageCaouselCache("popularGames", resp.results);
-        this.popularGames = resp.results;
-      },
-    });
-    }
-  }
+  constructor(
+    private gameService: GameService,
+    private cacheService: CacheService
+  ) {}
 
   getRelevantGames() {
-    //subscribe in get request to api
-    this.gameService.getRelevantGames();
+    // TODO
+    //this.gameService.getRelevantGames();
+  }
+
+  getGamesFromCache(queryParams: IGameQueryParams) {
+    const cacheData = this.cacheService.getHomePageCarouselCache(
+      queryParams.query_type
+    );
+    if (cacheData) {
+      return cacheData;
+    }
+    return [];
+  }
+
+  getGamesFromGameService(queryParams: IGameQueryParams) {
+    return this.gameService.getGamesByParams(queryParams.params);
   }
 }

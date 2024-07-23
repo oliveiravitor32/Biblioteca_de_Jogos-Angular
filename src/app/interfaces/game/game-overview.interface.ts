@@ -1,4 +1,4 @@
-import { IPlatforms } from '../game-platforms.interface';
+import { IGamePlatforms } from '../game-platforms.interface';
 
 export interface IGameOverview {
   id: number;
@@ -18,24 +18,12 @@ export interface IGameOverview {
   playtime: number;
   suggestions_count: number;
   updated: Date;
-  esrb_rating: {
-    id: number;
-    slug: string;
-    name: string;
-  } | undefined;
-  platforms: [IPlatforms];
+  esrb_rating:
+    | {
+        id: number;
+        slug: string;
+        name: string;
+      }
+    | undefined;
+  platforms: [IGamePlatforms];
 }
-
-// export interface IGameOverview {
-//   id: number;
-//   name: string;
-//   released: Date | undefined;
-//   background_image: string;
-//   metacritic: number;
-//   platforms: [IPlatforms];
-//   description: string;
-//   website: string;
-//   game_series_count: number;
-//   screenshots_count: number;
-//   movies_count: number;
-// }

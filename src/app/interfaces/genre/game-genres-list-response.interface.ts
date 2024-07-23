@@ -1,6 +1,6 @@
 import { IGameGenre } from './game-genre.interface';
 
-export interface IListGameGenres {
+export interface IGameGenreListResponse {
   count: number;
   next: string;
   previous: string;

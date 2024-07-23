@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { GameService } from '../../services/game.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IDetailedGame } from '../../interfaces/game/detailed-game.interface';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-game-details',
@@ -16,9 +17,9 @@ export class GameDetailsComponent implements OnInit {
   loading: boolean = false;
 
   constructor(
-    private gameService: GameService,
-    private _snackBar: MatSnackBar,
-    private route: ActivatedRoute
+    private readonly gameService: GameService,
+    private readonly _snackBar: MatSnackBar,
+    private readonly route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {

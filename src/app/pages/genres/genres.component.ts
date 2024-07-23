@@ -1,5 +1,4 @@
-import { IGameGenre } from '../../interfaces/game-genre.interface';
-import { IListGameGenres } from '../../interfaces/list-game-genres.interface';
+import { IGameGenre } from '../../interfaces/genre/game-genre.interface';
 import { CacheService } from '../../services/cache.service';
 import { GameService } from './../../services/game.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +11,10 @@ import { Component, OnInit } from '@angular/core';
 export class GenresComponent implements OnInit {
   genreList: IGameGenre[] = [];
 
-  constructor(private gameService: GameService, private cacheService: CacheService) {}
+  constructor(
+    private gameService: GameService,
+    private cacheService: CacheService
+  ) {}
 
   loading: boolean = false;
 

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IGameGenre } from '../../../interfaces/game-genre.interface';
+import { IGameGenre } from '../../../interfaces/genre/game-genre.interface';
 
 @Component({
   selector: 'app-genre-card',

@@ -1,24 +1,30 @@
 import { Injectable } from '@angular/core';
 import { IGameOverview } from '../interfaces/game/game-overview.interface';
-import { IGameGenre } from '../interfaces/game-genre.interface';
+import { IGameGenre } from '../interfaces/genre/game-genre.interface';
+import { EGameListType } from '../interfaces/query-params-and-game-list-type/enum-game-list-type.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CacheService {
-
-  private homePageCaouselCache: Map<string, IGameOverview[]> = new Map<string, IGameOverview[]>();
+  private homePageCarouselCache: Map<EGameListType, IGameOverview[]> = new Map<
+    EGameListType,
+    IGameOverview[]
+  >();
 
   private genresCache: IGameGenre[] = [];
 
   constructor() {}
 
-  getHomePageCaouselCache(key: string) {
-    return this.homePageCaouselCache.get(key);
+  getHomePageCarouselCache(queryType: EGameListType) {
+    return this.homePageCarouselCache.get(queryType);
   }
 
-  setHomePageCaouselCache(key: string, gameList: IGameOverview[]) {
-    this.homePageCaouselCache.set(key, gameList)
+  setHomePageCarouselCache(
+    queryType: EGameListType,
+    gameList: IGameOverview[]
+  ) {
+    this.homePageCarouselCache.set(queryType, gameList);
   }
 
   getGenresCache() {
@@ -26,6 +32,6 @@ export class CacheService {
   }
 
   setGenresCache(genres: IGameGenre[]) {
-    this.genresCache =  genres;
+    this.genresCache = genres;
   }
 }

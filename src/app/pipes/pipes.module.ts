@@ -1,18 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GameDescriptionPipe } from './game-description.pipe';
+import { TruncateGameDescriptionPipe } from './truncate-game-description.pipe';
 import { DashIfEmptyPipe } from './dash-if-empty.pipe';
 
-
-
 @NgModule({
-  declarations: [
-    GameDescriptionPipe,
-    DashIfEmptyPipe
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [GameDescriptionPipe, DashIfEmptyPipe]
+  declarations: [TruncateGameDescriptionPipe, DashIfEmptyPipe],
+  imports: [CommonModule],
+  exports: [TruncateGameDescriptionPipe, DashIfEmptyPipe],
 })
-export class PipesModule { }
+export class PipesModule {}

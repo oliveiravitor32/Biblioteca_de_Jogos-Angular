@@ -1,4 +1,3 @@
-import { IPlatforms } from '../game-platforms.interface';
 import { IGameOverview } from './game-overview.interface';
 
 export interface IDetailedGame extends IGameOverview {
@@ -21,22 +20,24 @@ export interface IDetailedGame extends IGameOverview {
     }
   ];
   publishers: [
-    {
-      games_count: number;
-      id: number;
-      image_background: string;
-      name: string;
-      slug: string;
-    } | undefined
+    | {
+        games_count: number;
+        id: number;
+        image_background: string;
+        name: string;
+        slug: string;
+      }
+    | undefined
   ];
   developers: [
-    {
-      id: number;
-      name: string;
-      slug: string;
-      games_count: number;
-      image_background: string;
-    } | undefined
+    | {
+        id: number;
+        name: string;
+        slug: string;
+        games_count: number;
+        image_background: string;
+      }
+    | undefined
   ];
   stores: [
     {

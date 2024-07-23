@@ -1,4 +1,4 @@
-export interface IPlatforms {
+export interface IGamePlatforms {
   platform: {
     id: number;
     slug: string;
