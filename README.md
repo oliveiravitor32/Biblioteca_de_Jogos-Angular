@@ -1,6 +1,6 @@
 # Biblioteca de Jogos 🎮
 
-## Demo - [Vercel](https://biblioteca-de-jogos-angular-oliveiravitor32s-projects.vercel.app/)
+## Demo: [Deploy Vercel](https://biblioteca-de-jogos-angular-oliveiravitor32s-projects.vercel.app/)
 
 
 # GameLibrary 🎮
