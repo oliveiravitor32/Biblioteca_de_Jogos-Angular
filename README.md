@@ -1,7 +1,7 @@
 # Biblioteca de Jogos 🎮
 
 ## Demo: [Deploy Vercel](https://biblioteca-de-jogos-angular-oliveiravitor32s-projects.vercel.app/)
-<img src="assets/preview_biblioteca_de_jogos.png" width="45%" height="auto" margin="0 auto"/>
+<img src="src/assets/preview_biblioteca_de_jogos.PNG" width="45%" height="auto" margin="0 auto"/>
 
 # GameLibrary 🎮
 
