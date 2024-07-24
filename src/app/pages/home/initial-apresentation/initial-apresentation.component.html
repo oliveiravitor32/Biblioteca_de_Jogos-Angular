@@ -19,14 +19,4 @@
       (selectGameEmmiter)="onSelectGame($event)"
     ></app-game-list-carousel>
   </section>
-  <section>
-    @if(relevantGames.length === 0) {
-    <mat-spinner class="main-spinner" diameter="120"></mat-spinner>
-    }
-    <h2>Relevantes</h2>
-    <app-game-list-carousel
-      [gameList]="relevantGames"
-      (selectGameEmmiter)="onSelectGame($event)"
-    ></app-game-list-carousel>
-  </section>
 </div>

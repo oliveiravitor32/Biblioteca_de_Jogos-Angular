@@ -28,13 +28,18 @@ export class SearchGamesComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.routeQueryMapSubscription = this.route.queryParamMap.subscribe({
       next: (resp) => {
-        const searchField = resp.get('game') ? resp.get('game')! : '';
+        const searchByNameField = resp.get('game') ? resp.get('game')! : '';
         const genreIdField = resp.get('genres') ? resp.get('genres')! : '';
-        const params: HttpParams = new HttpParams().appendAll({
+
+        let params: HttpParams = new HttpParams().appendAll({
           page_size: 40,
-          search: searchField,
-          genres: genreIdField,
         });
+        if (searchByNameField) {
+          params = params.append('search', searchByNameField);
+        }
+        if (genreIdField) {
+          params = params.append('genres', genreIdField);
+        }
 
         this.loading = true;
         this.gameService.getGamesByParams(params).subscribe({

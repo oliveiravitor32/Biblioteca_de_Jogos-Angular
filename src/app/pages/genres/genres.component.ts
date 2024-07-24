@@ -31,7 +31,6 @@ export class GenresComponent implements OnInit {
       this.gameService.getGameGenres().subscribe({
         next: (resp) => {
           this.loading = false;
-          console.log(resp.results);
           this.cacheService.setGenresCache(resp.results);
           this.genreList = resp.results;
         },
