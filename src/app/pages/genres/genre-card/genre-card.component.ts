@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IGameGenre } from '../../../interfaces/genre/game-genre.interface';
 
 @Component({
@@ -8,4 +8,10 @@ import { IGameGenre } from '../../../interfaces/genre/game-genre.interface';
 })
 export class GenreCardComponent {
   @Input({ required: true }) genre!: IGameGenre;
+
+  @Output() selectGenreEmmiter = new EventEmitter<IGameGenre>();
+
+  onSelectGenre() {
+    this.selectGenreEmmiter.emit(this.genre);
+  }
 }

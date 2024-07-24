@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'GameLibrary';
@@ -15,13 +14,15 @@ export class AppComponent {
 
   constructor(private router: Router, private formBuilder: FormBuilder) {
     this.searchGameForm = this.formBuilder.group({
-      gameToSearch: ['', Validators.required]
+      gameToSearch: ['', Validators.required],
     });
   }
 
   onSubmitSearchGame(event: Event) {
     event.preventDefault();
-    this.router.navigate([`search`], { queryParams: { game: this.searchGameForm.get("gameToSearch")!.value}});
+    this.router.navigate([`search`], {
+      queryParams: { game: this.searchGameForm.get('gameToSearch')!.value },
+    });
     this.searchGameForm.reset();
   }
 }

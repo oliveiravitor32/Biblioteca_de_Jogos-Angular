@@ -63,14 +63,6 @@ export class GameService {
   }
 
   getGamesByName(name: string): Observable<IGameListResponse> {
-    //TESTE
-    this.http
-      .get<IGameListResponse>(`${API_URL}/tags?key=${API_KEY}&page_size=${80}`)
-      .subscribe({
-        next: (r) => {
-          console.log(r);
-        },
-      });
     return this.http
       .get<IGameListResponse>(`${API_URL}/games?key=${API_KEY}&search=${name}`)
       .pipe(take(1));

@@ -20,17 +20,26 @@ export class InitialApresentationComponent {
   ngOnInit(): void {
     const newGamesReleasedQueryParams: IGameQueryParams = {
       query_type: EGameListType.NEW_GAMES_RELEASED,
-      params: new HttpParams().append('ordering', 'released'),
+      params: new HttpParams().appendAll({
+        page_size: '32',
+        ordering: '-released',
+        metacritic: '70, 100',
+      }),
     };
     const popularGamesQueryParams: IGameQueryParams = {
       query_type: EGameListType.POPULAR_GAMES,
-      params: new HttpParams(),
+      params: new HttpParams().append('page_size', '32'),
     };
 
     this.newReleasedGames = this.getGamesFromCache(newGamesReleasedQueryParams);
     if (this.newReleasedGames.length === 0) {
       this.getGamesFromGameService(newGamesReleasedQueryParams).subscribe({
         next: (resp) => {
+          //salva em cache
+          this.cacheService.setHomePageCarouselCache(
+            newGamesReleasedQueryParams.query_type,
+            resp.results
+          );
           this.newReleasedGames = resp.results;
         },
       });
@@ -40,6 +49,11 @@ export class InitialApresentationComponent {
     if (this.popularGames.length === 0) {
       this.getGamesFromGameService(popularGamesQueryParams).subscribe({
         next: (resp) => {
+          //salva em cache
+          this.cacheService.setHomePageCarouselCache(
+            popularGamesQueryParams.query_type,
+            resp.results
+          );
           this.popularGames = resp.results;
         },
       });

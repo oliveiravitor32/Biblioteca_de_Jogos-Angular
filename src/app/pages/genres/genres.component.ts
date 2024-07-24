@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { IGameGenre } from '../../interfaces/genre/game-genre.interface';
 import { CacheService } from '../../services/cache.service';
 import { GameService } from './../../services/game.service';
@@ -13,26 +14,32 @@ export class GenresComponent implements OnInit {
 
   constructor(
     private gameService: GameService,
-    private cacheService: CacheService
+    private cacheService: CacheService,
+    private router: Router
   ) {}
 
   loading: boolean = false;
 
   ngOnInit(): void {
     this.loading = true;
-    if (this.cacheService.getGenresCache().length != 0) {
+    const CACHE_EMPTY = this.cacheService.getGenresCache().length === 0;
+
+    if (!CACHE_EMPTY) {
       this.genreList = this.cacheService.getGenresCache();
       this.loading = false;
     } else {
       this.gameService.getGameGenres().subscribe({
         next: (resp) => {
           this.loading = false;
-
+          console.log(resp.results);
           this.cacheService.setGenresCache(resp.results);
-
           this.genreList = resp.results;
         },
       });
     }
+  }
+
+  onSelectGenre(genre: IGameGenre) {
+    this.router.navigate([`search`], { queryParams: { genres: genre.id } });
   }
 }

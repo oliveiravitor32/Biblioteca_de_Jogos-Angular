@@ -3,7 +3,10 @@
     <h2>Gêneros</h2>
     <div class="container-genre-cards">
       @for(genre of genreList; track $index) {
-      <app-genre-card [genre]="genre"></app-genre-card>
+      <app-genre-card
+        [genre]="genre"
+        (selectGenreEmmiter)="onSelectGenre($event)"
+      ></app-genre-card>
       } @if(loading){
       <mat-spinner></mat-spinner>
       }

@@ -3,20 +3,23 @@ import { ActivatedRoute } from '@angular/router';
 import { GameService } from '../../../services/game.service';
 import { IGameOverview } from '../../../interfaces/game/game-overview.interface';
 import { Subscription } from 'rxjs';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-search-games',
   templateUrl: './search-games.component.html',
-  styleUrl: './search-games.component.scss'
+  styleUrl: './search-games.component.scss',
 })
-export class SearchGamesComponent implements OnInit, OnDestroy{
-
+export class SearchGamesComponent implements OnInit, OnDestroy {
   gamesFound: IGameOverview[] = [];
   private routeQueryMapSubscription!: Subscription;
 
   loading: boolean = false;
 
-  constructor(private route: ActivatedRoute, private gameService: GameService){}
+  constructor(
+    private route: ActivatedRoute,
+    private gameService: GameService
+  ) {}
 
   onSelectGame(selectedGame: IGameOverview) {
     this.gameService.onSelectGame(selectedGame);
@@ -25,18 +28,24 @@ export class SearchGamesComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
     this.routeQueryMapSubscription = this.route.queryParamMap.subscribe({
       next: (resp) => {
-        // aciona loading
+        const searchField = resp.get('game') ? resp.get('game')! : '';
+        const genreIdField = resp.get('genres') ? resp.get('genres')! : '';
+        const params: HttpParams = new HttpParams().appendAll({
+          page_size: 40,
+          search: searchField,
+          genres: genreIdField,
+        });
+
         this.loading = true;
-        this.gameService.getGamesByName(this.route.snapshot.queryParamMap.get("game")!).subscribe({
+        this.gameService.getGamesByParams(params).subscribe({
           next: (resp) => {
             // finaliza loading
-            this.loading = false
+            this.loading = false;
             this.gamesFound = resp.results;
-          }
+          },
         });
-      }
-    })
-   
+      },
+    });
   }
 
   ngOnDestroy(): void {
