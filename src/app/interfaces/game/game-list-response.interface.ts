@@ -1,4 +1,4 @@
-import { IGamePlatforms } from '../game-platforms.interface';
+import { IGamePlatform } from './game-platform.interface';
 
 export interface IGameListResponse {
   count: number;
@@ -28,7 +28,7 @@ export interface IGameListResponse {
         slug: string;
         name: string;
       };
-      platforms: [IGamePlatforms];
+      platforms: IGamePlatform[];
     }
   ];
 }

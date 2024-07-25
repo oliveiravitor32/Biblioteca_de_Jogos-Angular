@@ -18,6 +18,6 @@ export class TruncateGameDescriptionPipe implements PipeTransform {
       return description;
     }
 
-    return description.substring(0, MAX_LENGTH) + '...';
+    return description.substring(0, MAX_LENGTH).trim() + '...';
   }
 }
