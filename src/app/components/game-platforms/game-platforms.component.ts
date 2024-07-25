@@ -16,7 +16,6 @@ export class GamePlatformsComponent implements OnInit {
   ngOnInit(): void {
     for (let platform of this.platforms) {
       let formatedNameToCompare = platform.platform.name.toLowerCase();
-      console.log(formatedNameToCompare);
       if (formatedNameToCompare.includes('pc')) {
         this.isOnPC = true;
       }

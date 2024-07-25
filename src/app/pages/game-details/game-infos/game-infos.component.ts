@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { IDetailedGame } from '../../../interfaces/game/detailed-game.interface';
 
 @Component({
@@ -6,6 +6,15 @@ import { IDetailedGame } from '../../../interfaces/game/detailed-game.interface'
   templateUrl: './game-infos.component.html',
   styleUrl: './game-infos.component.scss',
 })
-export class GameInfosComponent {
+export class GameInfosComponent implements OnChanges {
   @Input({ required: true }) game: IDetailedGame = {} as IDetailedGame;
+
+  loading: boolean = true;
+
+  ngOnChanges(): void {
+    // atualizar carregamento quando a requisição do jogo for completa e evitar erros de leitura (Cannot read properties of undefined (reading '0'))
+    if (this.game.name) {
+      this.loading = false;
+    }
+  }
 }
