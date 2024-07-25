@@ -13,7 +13,8 @@ export class GameInfosComponent implements OnChanges {
 
   ngOnChanges(): void {
     // atualizar carregamento quando a requisição do jogo for completa e evitar erros de leitura (Cannot read properties of undefined (reading '0'))
-    if (this.game.name) {
+    // descrição somente é recebida junto a requisição de detalhes sobre o jogo
+    if (this.game.description) {
       this.loading = false;
     }
   }
