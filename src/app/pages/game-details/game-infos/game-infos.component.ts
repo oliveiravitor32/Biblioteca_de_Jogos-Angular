@@ -27,8 +27,6 @@ export class GameInfosComponent implements OnChanges {
           this.enablePCRequirements = true;
           this.minimunRequerimentsForPC = platform.requirements.minimum;
           this.recommendedRequerimentsForPC = platform.requirements.recommended;
-
-          console.log(platform);
         }
       }
 

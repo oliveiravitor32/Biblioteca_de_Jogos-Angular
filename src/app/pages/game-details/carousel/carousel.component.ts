@@ -6,6 +6,24 @@ import { Component, Input } from '@angular/core';
   styleUrl: './carousel.component.scss',
 })
 export class CarouselComponent {
-  // Tratamento básico para inserir dados no carrosel!
-  @Input({ required: true }) cachedImages: string[] = [];
+  @Input({ required: true }) images: string[] = [];
+
+  currentIndex = 0;
+
+  nextSlide() {
+    const LIMIT_REACHED = this.currentIndex === this.images.length - 1;
+    if (LIMIT_REACHED) {
+      this.currentIndex = 0;
+    } else {
+      this.currentIndex++;
+    }
+  }
+  previousSlide() {
+    const LIMIT_REACHED = this.currentIndex - 1 < 0;
+    if (LIMIT_REACHED) {
+      this.currentIndex = this.images.length - 1;
+    } else {
+      this.currentIndex--;
+    }
+  }
 }

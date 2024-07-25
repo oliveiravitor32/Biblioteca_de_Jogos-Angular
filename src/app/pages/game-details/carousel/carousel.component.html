@@ -3,6 +3,7 @@
     class="carousel-control-button -left"
     data-bs-target="#carouselExample"
     data-bs-slide="prev"
+    (click)="previousSlide()"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -19,9 +20,9 @@
   </button>
   <div class="carousel-inner">
     <div class="carousel-item">
-      @if(cachedImages.length === 0 ) {
+      @if(images.length === 0 ) {
       <mat-spinner class="game-info-spinner"></mat-spinner>} @else {
-      <img [src]="cachedImages[0]" alt="..." />
+      <img [src]="images[currentIndex]" alt="..." />
       }
     </div>
   </div>
@@ -29,6 +30,7 @@
     class="carousel-control-button -right"
     data-bs-target="#carouselExample"
     data-bs-slide="next"
+    (click)="nextSlide()"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"

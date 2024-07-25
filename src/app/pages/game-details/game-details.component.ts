@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 })
 export class GameDetailsComponent implements OnInit {
   game: IDetailedGame = {} as IDetailedGame;
-  cachedImagesForCarrousel: string[] = [];
+  imagesToCarousel: string[] = [];
 
   loading: boolean = false;
 
@@ -27,7 +27,6 @@ export class GameDetailsComponent implements OnInit {
     // informações cacheds
     if (this.gameService.getSelectedGame() != null) {
       const selectedGame = this.gameService.getSelectedGame();
-
       this.game.name = selectedGame.name;
       this.game.background_image = selectedGame.background_image;
       this.game.platforms = selectedGame.platforms;
@@ -38,10 +37,11 @@ export class GameDetailsComponent implements OnInit {
     this.gameService.getGameDetailsById(gameId!).subscribe({
       next: (resp) => {
         this.game = resp;
-        this.cachedImagesForCarrousel = [
+        this.imagesToCarousel = [
           resp.background_image,
           resp.background_image_additional,
         ];
+        this.getGameScreenshots();
         this.loading = false;
       },
     });
@@ -56,6 +56,18 @@ export class GameDetailsComponent implements OnInit {
 
     this._snackBar.open(snackBarMessage, '', {
       duration: 1200,
+    });
+  }
+
+  getGameScreenshots() {
+    this.gameService.getScreenshotsForTheGame(this.game.id).subscribe({
+      next: (resp) => {
+        let getOnlyImages = [];
+        for (let result of resp.results) {
+          getOnlyImages.push(result.image);
+        }
+        this.imagesToCarousel = [...this.imagesToCarousel, ...getOnlyImages];
+      },
     });
   }
 }
