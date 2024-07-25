@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GameService } from '../../services/game.service';
 import { IGameOverview } from '../../interfaces/game/game-overview.interface';
+import { CacheService } from '../../services/cache.service';
 
 @Component({
   selector: 'app-favorites',
@@ -10,13 +10,13 @@ import { IGameOverview } from '../../interfaces/game/game-overview.interface';
 export class FavoritesComponent implements OnInit {
   favoriteGames: IGameOverview[] = [];
 
-  constructor(private gameService: GameService) {}
+  constructor(private readonly cacheService: CacheService) {}
 
   ngOnInit(): void {
-    this.favoriteGames = this.gameService.getFavoriteGames();
+    this.favoriteGames = this.cacheService.getFavoriteGames();
   }
 
   onSelectGame(selectedGame: IGameOverview) {
-    this.gameService.onSelectGame(selectedGame);
+    this.cacheService.setSelectedGame(selectedGame);
   }
 }

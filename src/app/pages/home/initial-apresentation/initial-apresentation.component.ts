@@ -17,6 +17,11 @@ export class InitialApresentationComponent {
   popularGames: IGameOverview[] = [];
   relevantGames: IGameOverview[] = [];
 
+  constructor(
+    private readonly gameService: GameService,
+    private readonly cacheService: CacheService
+  ) {}
+
   ngOnInit(): void {
     const newGamesReleasedQueryParams: IGameQueryParams = {
       query_type: EGameListType.NEW_GAMES_RELEASED,
@@ -61,13 +66,8 @@ export class InitialApresentationComponent {
   }
 
   onSelectGame(selectedGame: IGameOverview) {
-    this.gameService.onSelectGame(selectedGame);
+    this.cacheService.setSelectedGame(selectedGame);
   }
-
-  constructor(
-    private gameService: GameService,
-    private cacheService: CacheService
-  ) {}
 
   getRelevantGames() {
     // TODO

@@ -13,9 +13,9 @@ export class GenresComponent implements OnInit {
   genreList: IGameGenre[] = [];
 
   constructor(
-    private gameService: GameService,
-    private cacheService: CacheService,
-    private router: Router
+    private readonly gameService: GameService,
+    private readonly cacheService: CacheService,
+    private readonly router: Router
   ) {}
 
   loading: boolean = false;

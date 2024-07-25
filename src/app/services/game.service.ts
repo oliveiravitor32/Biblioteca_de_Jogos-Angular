@@ -14,23 +14,10 @@ const API_KEY: string = 'fca3f14ca6b2481dbbd968ff8c91ff65';
   providedIn: 'root',
 })
 export class GameService {
-  selectedGame: IGameOverview = {} as IGameOverview;
-
-  favoriteGames: IGameOverview[] = [];
-
   constructor(
     private readonly router: Router,
     private readonly http: HttpClient
   ) {}
-
-  onSelectGame(selectedGame: IGameOverview): void {
-    this.selectedGame = selectedGame;
-    this.router.navigate(['game-details/' + selectedGame.id]);
-  }
-
-  getSelectedGame(): IGameOverview {
-    return this.selectedGame;
-  }
 
   getGameGenres(): Observable<IGameGenreListResponse> {
     return this.http
@@ -42,25 +29,6 @@ export class GameService {
     return this.http
       .get<IDetailedGame>(`${API_URL}/games/${id}?key=${API_KEY}`)
       .pipe(retry(3), take(1));
-  }
-
-  updateFavoriteGames(gameToUpdate: IGameOverview): boolean {
-    const isGameAlreadyFavorited = this.favoriteGames.find(
-      (game) => game.id === gameToUpdate.id
-    );
-
-    if (!isGameAlreadyFavorited) {
-      this.favoriteGames.push(gameToUpdate);
-      return true;
-    }
-    this.favoriteGames = this.favoriteGames.filter(
-      (game) => game.id !== gameToUpdate.id
-    );
-    return false;
-  }
-
-  getFavoriteGames(): IGameOverview[] {
-    return this.favoriteGames;
   }
 
   getGamesByName(name: string): Observable<IGameListResponse> {

@@ -4,6 +4,7 @@ import { GameService } from '../../../services/game.service';
 import { IGameOverview } from '../../../interfaces/game/game-overview.interface';
 import { Subscription } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
+import { CacheService } from '../../../services/cache.service';
 
 @Component({
   selector: 'app-search-games',
@@ -17,12 +18,13 @@ export class SearchGamesComponent implements OnInit, OnDestroy {
   loading: boolean = false;
 
   constructor(
-    private route: ActivatedRoute,
-    private gameService: GameService
+    private readonly route: ActivatedRoute,
+    private readonly cacheService: CacheService,
+    private readonly gameService: GameService
   ) {}
 
   onSelectGame(selectedGame: IGameOverview) {
-    this.gameService.onSelectGame(selectedGame);
+    this.cacheService.setSelectedGame(selectedGame);
   }
 
   ngOnInit(): void {
