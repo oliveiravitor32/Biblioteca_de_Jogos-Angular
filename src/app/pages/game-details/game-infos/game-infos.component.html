@@ -12,11 +12,6 @@
         <span>Data de lançamento</span>
         <p>{{ game.released | date : "dd/MM/yyyy" | dashIfEmpty }}</p>
       </div>
-
-      <div class="meta-game-info-item">
-        <span>Gêneros</span>
-        <p>{{ "buscar por request as informações faltantes" }}</p>
-      </div>
       <div class="meta-game-info-item">
         <span>Desenvolvedor</span>
         <p>{{ game.developers[0]?.name | dashIfEmpty }}</p>
@@ -30,43 +25,33 @@
         <p>{{ game.esrb_rating?.name | dashIfEmpty }}</p>
       </div>
     </div>
+    @if(enablePCRequirements) {
     <div class="container-game-requirements-pc">
       <h2>Requisitos do sistema para PC</h2>
       <div class="wrapper-requirements-pc">
         <strong class="strong-text">Mínimo:</strong>
         <ul>
-          <li>Sistema operacional: Windowns 10 64 bit</li>
+          @for(line of minimunRequerimentsForPC |
+          minimumRecommendedPcRequirements; track $index) {
           <li>
-            Processador: Intel Core i5-6600, 3.3 GHz or AMD Ryzen 5 1500X, 3.5
-            GHz
+            {{ line }}
           </li>
-          <li>Memória: 12 GB RAM</li>
-          <li>
-            Placa de vídeo: NVIDIA GeForce GTX 750 Ti, 2 GB or AMD Radeon R7
-            360, 2 GB
-          </li>
-          <li>DirectX: Versão 11</li>
-          <li>Armazenamento: 7 GB de espaço disponível</li>
+          }
         </ul>
       </div>
       <div class="wrapper-requirements-pc">
         <strong>Recomendado:</strong>
         <ul>
-          <li>Sistema operacional: Windowns 10 64 bit</li>
+          @for(line of recommendedRequerimentsForPC |
+          minimumRecommendedPcRequirements; track $index) {
           <li>
-            Processador: Intel Core i5-6600, 3.3 GHz or AMD Ryzen 5 1500X, 3.5
-            GHz
+            {{ line }}
           </li>
-          <li>Memória: 12 GB RAM</li>
-          <li>
-            Placa de vídeo: NVIDIA GeForce GTX 750 Ti, 2 GB or AMD Radeon R7
-            360, 2 GB
-          </li>
-          <li>DirectX: Versão 11</li>
-          <li>Armazenamento: 7 GB de espaço disponível</li>
+          }
         </ul>
       </div>
     </div>
+    }
   </section>
   <section class="game-purchase-info-section">
     <ul class="game-purchase-info-list">
