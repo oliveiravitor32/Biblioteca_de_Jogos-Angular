@@ -1,0 +1,147 @@
+@import "../styles.scss";
+@import "../styles/utils/illuminated-box-shadow";
+@import "../styles/utils/styled-hover-text";
+
+
+@media screen and (max-width: 1400px) {
+  header {
+    padding: 20px 30px 35px 30px;
+    
+  }
+  .container-links {
+    gap: 25px;
+  }
+  .container-form {
+    & form {
+      & input {
+        font-size: 16px;
+      }
+      & button {
+        padding: 2px 15px;
+        margin-top: 5px;
+      }
+     
+    }
+    
+}
+}
+
+@media screen and (max-width: 1100px) {
+  header {
+    padding: 20px 15px 35px 15px;
+  }
+  .container-links {
+    font-size: 20px;
+  }
+  .logo {
+    font-size: 23px;
+  }
+
+  .container-form {
+    & form {
+      & .field-container {
+        & input {
+          width: 160px;
+
+          &:valid ~ label,
+          &:focus ~ label {
+          font-size: 14px;
+          }
+        }
+        & label {
+          font-size: 14px;
+        }
+      }
+      
+      & button {
+        padding: 2px 12px;
+        margin-top: 5px;
+      }
+    
+    }
+  
+}
+}
+
+@media screen and (max-width: 700px) {
+  header {
+    width: 100%;
+    padding: 20px 10px 35px 10px;
+    & nav {
+      justify-content: center;
+      gap: 20px
+    }
+  }
+  .container-links {
+    flex: 0;
+    gap: 15px;
+    font-size: 16px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .container-form {
+    flex: 0;
+    & form {
+      & .field-container {
+        & input {
+          width: 100px;
+          font-size: 16px;
+        }
+      }
+      & button {
+        padding: 1px 8px;
+        & svg {
+          width: 22px;
+        }
+      }
+
+    }
+  
+}
+}
+
+@media screen and (max-width: 470px) {
+  header {
+    padding: 20px 5px 35px 5px;
+    & nav {
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  }
+  .container-links {
+    gap: 10px;
+    font-size: 14px;
+  }
+  .logo {
+    font-size: 16px;
+  }
+
+  .container-form {
+    & form {
+      width: 60vw;
+      & .field-container {
+        & input {
+          width: 100%;
+          font-size: 14px;
+          
+          &:valid ~ label,
+          &:focus ~ label {
+          font-size: 12px;
+          }
+        }
+        & label {
+          font-size: 12px;
+        }
+      }
+      
+      & button {
+        padding: 2px 6px;
+        font-size: 8px;
+        margin-top: 5px;
+      } 
+    } 
+}
+}
