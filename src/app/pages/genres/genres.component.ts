@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-genres',
   templateUrl: './genres.component.html',
-  styleUrl: './genres.component.scss',
+  styleUrls: ['./genres.component.scss', './genres.responsive.component.scss'],
 })
 export class GenresComponent implements OnInit {
   genreList: IGameGenre[] = [];
