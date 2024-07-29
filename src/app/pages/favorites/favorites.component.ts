@@ -5,7 +5,10 @@ import { CacheService } from '../../services/cache.service';
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
-  styleUrl: './favorites.component.scss',
+  styleUrls: [
+    './favorites.component.scss',
+    './favorites.responsive.component.scss',
+  ],
 })
 export class FavoritesComponent implements OnInit {
   favoriteGames: IGameOverview[] = [];

@@ -3,6 +3,7 @@ import { IGameOverview } from '../interfaces/game/game-overview.interface';
 import { IGameGenre } from '../interfaces/genre/game-genre.interface';
 import { EGameListType } from '../interfaces/query-params-and-game-list-type/enum-game-list-type.interface';
 import { Router } from '@angular/router';
+import { IGamePlatform } from '../interfaces/game/game-platform.interface';
 
 @Injectable({
   providedIn: 'root',

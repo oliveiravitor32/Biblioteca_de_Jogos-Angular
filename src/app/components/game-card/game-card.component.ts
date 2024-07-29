@@ -5,7 +5,10 @@ import { IGameOverview } from '../../interfaces/game/game-overview.interface';
 @Component({
   selector: 'app-game-card',
   templateUrl: './game-card.component.html',
-  styleUrl: './game-card.component.scss',
+  styleUrls: [
+    './game-card.component.scss',
+    './game-card.responsive.component.scss',
+  ],
 })
 export class GameCardComponent {
   @Input({ required: true }) game: IGameOverview = {} as IGameOverview;

@@ -21,11 +21,6 @@
         & h2 {
             font-size: 24px;
         }
-  
-          & .container-genre-cards {
-            gap: 30px;
-
-        }
     }
 }}
 
@@ -33,7 +28,6 @@
     
     .genres-section {
         & .container-genres {
-          width: 98%;
           padding: 30px 25px;
 
           & .container-genre-cards {

@@ -1,0 +1,34 @@
+@media screen and (max-width: 1200px) {
+  .container-game-card {
+    height: 250px;
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container-game-card {
+    height: 200px;
+    width: 160px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container-game-card {
+    height: 162px;
+    width: 130px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container-game-card {
+    height: 125px;
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container-game-card {
+    height: 100px;
+    width: 80px;
+  }
+}
