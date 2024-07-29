@@ -20,44 +20,51 @@ header {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    gap: 10px;
+
+    & .mobile-menu-toggle {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      display: none;
+    }
+  }
+
+  & .container-links,
+  .container-form {
+    display: flex;
+  }
+
+  & .container-links {
+    flex: 1;
+    gap: 40px;
+    font-size: 24px;
+    align-items: center;
+    padding: 5px 8px;
+  }
+
+  & .logo {
+    font-size: 26px;
+    padding: 5px 8px;
+    text-align: center;
   }
 }
 
-.container-links,
-.container-form {
-  display: flex;
-}
-
-.container-links {
-  flex: 1;
-  gap: 40px;
-  font-size: 24px;
-  align-items: center;
-  padding: 5px 8px;
-}
-
-.logo {
-  font-size: 26px;
-  padding: 5px 8px;
-  text-align: center;
-}
-
-.container-form {
+header .container-form {
   flex: 1;
   align-items: center;
   justify-content: flex-end;
-  
+
   & form {
     display: flex;
     align-items: flex-end;
 
-  
     & .field-container {
       display: flex;
       align-items: flex-end;
       position: relative;
     }
-  
+
     & label {
       position: absolute;
       top: 8px;
@@ -66,7 +73,7 @@ header {
       font-size: 18px;
       transition: all 0.5s;
     }
-  
+
     & input {
       font-weight: bold;
       height: auto;
@@ -78,30 +85,38 @@ header {
       outline: none;
       transition: all 0.5s;
       text-align: bottom;
-  
+
       &:focus {
         border-color: $light-color;
       }
-  
+
       &::placeholder {
-        color:  transparent;
+        color: transparent;
       }
-  
+
       &:valid ~ label,
       &:focus ~ label {
         font-size: 16px;
         top: 2px;
       }
     }
-  
+
     & button {
+      width: 55px;
+      height: 30px;
+      position: relative;
       color: black;
       border: none;
       font-weight: bold;
       background-color: $contrast-color;
-      padding: 0px 15px;
 
-  
+      & svg {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
       &:hover {
         cursor: pointer;
         transform: scale(1.05);
@@ -109,15 +124,14 @@ header {
         box-shadow: $illuminated-box-shadow;
         color: $purple-color;
       }
-  
+
       &:active {
         background-color: rgb(167, 161, 161);
       }
-  
+
       &:disabled {
         background-color: rgb(167, 161, 161);
       }
     }
   }
-  
 }

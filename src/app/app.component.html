@@ -1,4 +1,4 @@
-<header>
+<header [ngClass]="{ 'mobile-menu-open': isMobileMenuOpen }">
   <nav>
     <div class="container-links">
       <a class="styled-hover-text" routerLink="/genres">Gêneros</a>
@@ -32,6 +32,15 @@
         </button>
       </form>
     </div>
+
+    <button
+      mat-icon-button
+      (click)="toggleMobileMenu()"
+      class="mobile-menu-toggle"
+      aria-label="Botão para abrir menu para dispositivos móveis"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
   </nav>
 </header>
 <router-outlet></router-outlet>
