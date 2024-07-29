@@ -1,53 +1,49 @@
-@media screen and (max-width: 1200px) {  
-    .favorited-games-section {
-        & .container-favorited-games {
-          width: 90%;
+@media screen and (max-width: 1200px) {
+  .favorited-games-section {
+    & .container-favorited-games {
+      width: 90%;
 
-          & .container-game-card {
-            gap: 30px;
-
-        }
+      & .container-game-card {
+        gap: 30px;
+      }
     }
-}}
+  }
+}
 
 @media screen and (max-width: 900px) {
-    .favorited-games-section {
-        & .container-favorited-games {
-            width: 98%;
-        & h2 {
-            font-size: 24px;
-        }
-        & .container-game-card {
-            gap: 30px;
-
-        }
+  .favorited-games-section {
+    & .container-favorited-games {
+      width: 98%;
+      & h2 {
+        font-size: 24px;
+      }
     }
-    
-}}
+  }
+}
 
 @media screen and (max-width: 700px) {
-    .favorited-games-section {
-        & .container-favorited-games {
-            padding: 30px 25px;
-        & .container-game-card {
-            gap: 20px;
-
-        }
+  .favorited-games-section {
+    & .container-favorited-games {
+      padding: 30px 25px;
+      & .container-game-card {
+        gap: 20px;
+      }
     }
-}}
+  }
+}
 
 @media screen and (max-width: 400px) {
-    .favorited-games-section {
-        & .container-favorited-games {
-            width: 100%;
-            margin: 0 2px;
-            padding: 30px 20px;
-        & h2 {
-            font-size: 18px;
-        }
-        & .container-game-card {
-            gap: 15px;
-
-        }
+  .favorited-games-section {
+    & .container-favorited-games {
+      width: 100%;
+      margin: 0 2px;
+      padding: 30px 20px;
+      & h2 {
+        font-size: 18px;
+      }
+      & .container-game-card {
+        gap: 15px;
+      }
     }
-}}
+  }
+}

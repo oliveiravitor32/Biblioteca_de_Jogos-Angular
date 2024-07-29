@@ -1,10 +1,20 @@
 <div class="banner">
-  <img
-    src="../../../assets/banner-2000.png"
-    alt="Imagem de apresentação do site com o logo que exibe o texto 'Biblioteca de Jogos"
-  />
+  <picture>
+    <source
+      media="(max-width: 800px)"
+      srcset="../../../assets/banner-h250.png"
+    />
+    <source
+      media="(max-width: 1500px)"
+      srcset="../../../assets/banner-h1500.png"
+    />
+    <img
+      src="../../../assets/banner-h2000.png"
+      alt="Imagem de apresentação do site com o logo que exibe o texto 'Biblioteca de Jogos'"
+    />
+  </picture>
 </div>
 
 <main>
-  <router-outlet></router-outlet> 
+  <router-outlet></router-outlet>
 </main>

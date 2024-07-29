@@ -9,7 +9,10 @@ import { CacheService } from '../../../services/cache.service';
 @Component({
   selector: 'app-search-games',
   templateUrl: './search-games.component.html',
-  styleUrl: './search-games.component.scss',
+  styleUrls: [
+    './search-games.component.scss',
+    './search-games.responsive.component.scss',
+  ],
 })
 export class SearchGamesComponent implements OnInit, OnDestroy {
   gamesFound: IGameOverview[] = [];
