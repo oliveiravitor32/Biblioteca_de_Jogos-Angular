@@ -10,6 +10,11 @@
     height: 200px;
     width: 160px;
   }
+  .container-game-card-figure {
+    & .container-figcaption p {
+      font-size: 14px;
+    }
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -17,12 +22,30 @@
     height: 162px;
     width: 130px;
   }
+
+  .container-game-card-figure {
+    & .container-figcaption p {
+      font-size: 12px;
+    }
+  }
 }
 
 @media screen and (max-width: 500px) {
   .container-game-card {
     height: 125px;
     width: 100px;
+  }
+
+  .container-game-card-figure {
+    &:hover .container-figcaption {
+      bottom: 40%;
+      transform: translateY(0);
+    }
+
+    & .container-figcaption p {
+      font-weight: 500;
+      font-size: 10px;
+    }
   }
 }
 

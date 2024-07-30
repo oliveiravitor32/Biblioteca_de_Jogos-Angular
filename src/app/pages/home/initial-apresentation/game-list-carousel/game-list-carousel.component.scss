@@ -37,41 +37,40 @@
     overflow: hidden;
 
     & .carousel-inner {
-      position: relative;
       display: flex;
       gap: 30px;
       width: auto;
       transition: all 1s linear;
+    }
 
-      &::before {
-        content: "";
-        position: absolute;
-        z-index: 2;
-        bottom: 0;
-        height: 100%;
-        width: 20px;
-        left: 0;
-        background: linear-gradient(
-          270deg,
-          hsla(0, 0%, 100%, 0),
-          $tertiary-color 28px 100%
-        );
-      }
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      bottom: 0;
+      height: 100%;
+      width: 20px;
+      left: 0;
+      background: linear-gradient(
+        270deg,
+        hsla(0, 0%, 100%, 0),
+        $tertiary-color 28px 100%
+      );
+    }
 
-      &::after {
-        content: "";
-        position: absolute;
-        z-index: 2;
-        bottom: 0;
-        height: 100%;
-        width: 20px;
-        right: 0;
-        background: linear-gradient(
-          90deg,
-          hsla(0, 0%, 100%, 0),
-          $tertiary-color 28px 100%
-        );
-      }
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      bottom: 0;
+      height: 100%;
+      width: 20px;
+      right: 0;
+      background: linear-gradient(
+        90deg,
+        hsla(0, 0%, 100%, 0),
+        $tertiary-color 28px 100%
+      );
     }
   }
 }
