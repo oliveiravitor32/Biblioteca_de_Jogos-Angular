@@ -1,22 +1,24 @@
 <div class="container">
   <section>
-    @if(popularGames.length === 0) {
-    <mat-spinner class="main-spinner" diameter="120"></mat-spinner>
-    }
     <h2>Populares</h2>
+    @if(popularGames.length === 0) {
+    <mat-spinner class="main-spinner"></mat-spinner>
+    } @else {
     <app-game-list-carousel
       [gameList]="popularGames"
       (selectGameEmmiter)="onSelectGame($event)"
     ></app-game-list-carousel>
+    }
   </section>
   <section>
     <h2>Novos lançamentos e tendências</h2>
     @if(newReleasedGames.length === 0) {
     <mat-spinner class="main-spinner" diameter="120"></mat-spinner>
-    }
+    } @else {
     <app-game-list-carousel
       [gameList]="newReleasedGames"
       (selectGameEmmiter)="onSelectGame($event)"
     ></app-game-list-carousel>
+    }
   </section>
 </div>

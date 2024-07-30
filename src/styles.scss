@@ -32,3 +32,9 @@ body {
   background-color: $primary-color;
   font-family: $font, sans-serif;
 }
+
+@media screen and (max-width: 500px) {
+  mat-spinner {
+    width: 70px !important;
+  }
+}

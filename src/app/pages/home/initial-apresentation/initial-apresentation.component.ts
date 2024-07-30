@@ -10,7 +10,10 @@ import { HttpParams } from '@angular/common/http';
 @Component({
   selector: 'app-initial-apresentation',
   templateUrl: './initial-apresentation.component.html',
-  styleUrl: './initial-apresentation.component.scss',
+  styleUrls: [
+    './initial-apresentation.component.scss',
+    './initial-apresentation.responsive.component.scss',
+  ],
 })
 export class InitialApresentationComponent {
   newReleasedGames: IGameOverview[] = [];
