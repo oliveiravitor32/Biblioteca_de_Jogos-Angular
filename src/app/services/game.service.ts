@@ -22,19 +22,19 @@ export class GameService {
   getGameGenres(): Observable<IGameGenreListResponse> {
     return this.http
       .get<IGameGenreListResponse>(`${API_URL}/genres?key=${API_KEY}`)
-      .pipe(retry(3), take(1));
+      .pipe(take(1));
   }
 
   getGameDetailsById(id: number | string): Observable<IDetailedGame> {
     return this.http
       .get<IDetailedGame>(`${API_URL}/games/${id}?key=${API_KEY}`)
-      .pipe(retry(3), take(1));
+      .pipe(take(1));
   }
 
   getGamesByName(name: string): Observable<IGameListResponse> {
     return this.http
       .get<IGameListResponse>(`${API_URL}/games?key=${API_KEY}&search=${name}`)
-      .pipe(retry(3), take(1));
+      .pipe(take(1));
   }
 
   getGamesByParams(params: HttpParams | undefined) {
@@ -45,7 +45,7 @@ export class GameService {
       .get<IGameListResponse>(`${API_URL}/games?key=${API_KEY}`, {
         params,
       })
-      .pipe(retry(3), take(1));
+      .pipe(take(1));
   }
 
   getScreenshotsForTheGame(
@@ -55,6 +55,6 @@ export class GameService {
       .get<IListGameScreenshotsResponse>(
         `${API_URL}/games/${id}/screenshots?key=${API_KEY}`
       )
-      .pipe(retry(3), take(1));
+      .pipe(take(1));
   }
 }

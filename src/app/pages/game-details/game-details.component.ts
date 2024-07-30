@@ -8,7 +8,10 @@ import { CacheService } from '../../services/cache.service';
 @Component({
   selector: 'app-game-details',
   templateUrl: './game-details.component.html',
-  styleUrl: './game-details.component.scss',
+  styleUrls: [
+    './game-details.component.scss',
+    './game-details.responsive.component.scss',
+  ],
 })
 export class GameDetailsComponent implements OnInit {
   game: IDetailedGame = {} as IDetailedGame;

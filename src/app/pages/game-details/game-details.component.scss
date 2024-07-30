@@ -1,16 +1,16 @@
 @import "../../../styles.scss";
 
-
 .game-apresentation-section {
   position: relative;
   margin: 0 auto;
-  height: 600px;
+  height: auto;
   width: 100%;
-  padding: 120px 0px;
+  padding-top: 120px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 50px;
+  gap: 40px;
+
   & .game-art-background {
     position: absolute;
     top: 0;
@@ -38,8 +38,6 @@
     }
   }
   & .game-apresentation-spinner {
-    margin: 0 auto;
+    margin: 50px auto 0 auto;
   }
 }
-
-

@@ -4,7 +4,10 @@ import { IDetailedGame } from '../../../interfaces/game/detailed-game.interface'
 @Component({
   selector: 'app-game-infos',
   templateUrl: './game-infos.component.html',
-  styleUrl: './game-infos.component.scss',
+  styleUrls: [
+    './game-infos.component.scss',
+    './game-infos.responsive.component.scss',
+  ],
 })
 export class GameInfosComponent implements OnChanges {
   @Input({ required: true }) game: IDetailedGame = {} as IDetailedGame;

@@ -4,7 +4,10 @@ import { IGamePlatform } from '../../interfaces/game/game-platform.interface';
 @Component({
   selector: 'app-game-platforms',
   templateUrl: './game-platforms.component.html',
-  styleUrl: './game-platforms.component.scss',
+  styleUrls: [
+    './game-platforms.component.scss',
+    './game-platforms.responsive.component.scss',
+  ],
 })
 export class GamePlatformsComponent implements OnInit {
   @Input({ required: true }) platforms: IGamePlatform[] = {} as IGamePlatform[];

@@ -11,7 +11,7 @@ export class BackgroundImageDirective {
 
   constructor(private element: ElementRef) {
     this.element.nativeElement.style.backgroundRepeat = 'no-repeat';
-    this.element.nativeElement.style.backgroundSize = 'cover';
+    this.element.nativeElement.style.backgroundSize = '100%';
     this.element.nativeElement.style.filter = 'filter: brightness(40%)';
   }
 }

@@ -1,0 +1,46 @@
+@media screen and (max-width: 1100px) {
+  .carousel-slide {
+    height: 260px;
+    min-width: 400px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .carousel-slide {
+    height: 320px;
+    min-width: 500px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .carousel-slide {
+    height: 270px;
+    min-width: 420px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .carousel-slide {
+    height: 190px;
+    min-width: 340px;
+
+    & .carousel-control-button {
+      & svg {
+        width: 35px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .carousel-slide {
+    height: 160px;
+    min-width: 280px;
+
+    & .carousel-control-button {
+      & svg {
+        width: 35px;
+      }
+    }
+  }
+}

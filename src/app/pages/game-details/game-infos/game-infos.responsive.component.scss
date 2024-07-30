@@ -1,0 +1,102 @@
+@media screen and (max-width: 900px) {
+  .game-info-container {
+    padding: 50px 80px;
+
+    & .simple-text-size {
+      font-size: 14px;
+    }
+
+    & .styled-purple-link {
+      font-size: 14px;
+    }
+
+    & .pc-requirements-section {
+      margin-top: 40px;
+      & .title-pc-requirements {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .game-info-container {
+    padding: 30px 30px;
+
+    & .simple-text-size {
+      font-size: 14px;
+    }
+
+    & .styled-purple-link {
+      font-size: 12px;
+    }
+
+    & .pc-requirements-section {
+      margin-top: 20px;
+      & .title-pc-requirements {
+        font-size: 18px;
+      }
+    }
+
+    & .wrapper-meta-info-purchase-info {
+      & .meta-game-info-section {
+        & .wrapper-meta-game-info-items {
+          column-gap: 20px;
+          row-gap: 15px;
+        }
+      }
+
+      & .game-purchase-info-section {
+        & .game-purchase-info-list {
+          & .container-store-list {
+            & .store-list {
+              gap: 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .game-info-container {
+    padding: 20px 30px;
+
+    & .simple-text-size {
+      font-size: 12px;
+    }
+
+    & .pc-requirements-section {
+      margin-top: 20px;
+      & .title-pc-requirements {
+        font-size: 16px;
+      }
+    }
+
+    & .wrapper-meta-info-purchase-info {
+      & .meta-game-info-section {
+        & .wrapper-meta-game-info-items {
+          column-gap: 10px;
+          row-gap: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .game-info-container {
+    padding: 20px 10px;
+
+    & .pc-requirements-section {
+      & .title-pc-requirements {
+        font-size: 14px;
+      }
+    }
+
+    & .wrapper-meta-info-purchase-info {
+      flex-direction: column;
+    }
+  }
+}
