@@ -4,7 +4,10 @@
       <a class="styled-hover-text" routerLink="/genres">Gêneros</a>
       <a class="styled-hover-text" routerLink="/favorites">Favoritos</a>
     </div>
-    <a routerLink="/" class="logo styled-hover-text">Biblioteca de Jogos</a>
+    <div class="container-logo">
+      <a routerLink="/" class="logo styled-hover-text">Biblioteca de Jogos</a>
+    </div>
+
     <div class="container-form">
       <form [formGroup]="searchGameForm" (submit)="onSubmitSearchGame($event)">
         <div class="field-container">

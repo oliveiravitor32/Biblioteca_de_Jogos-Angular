@@ -47,10 +47,12 @@ header {
     }
   }
 
-  & .logo {
-    font-size: 26px;
-    padding: 5px 8px;
+  & .container-logo {
     text-align: center;
+    & .logo {
+      font-size: 26px;
+      padding: 5px 8px;
+    }
   }
 }
 

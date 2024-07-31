@@ -135,16 +135,21 @@
       & .mobile-menu-toggle {
         left: 100%;
         display: block;
-        align-self: flex-start;
       }
     }
+
     .container-links {
       order: 2;
     }
 
-    & .logo {
-      order: 1;
+    & .container-logo {
+      position: fixed;
+      width: 100vw;
+      top: 10px;
+      left: 100%;
+      border-radius: 0 0 10px 10px;
     }
+
     & .container-form {
       order: 3;
     }
@@ -152,11 +157,14 @@
 
   header.mobile-menu-open {
     transform: translateX(0%);
-
     & nav {
       & .mobile-menu-toggle {
         left: 0;
       }
+    }
+
+    & .container-logo {
+      position: static;
     }
   }
 
