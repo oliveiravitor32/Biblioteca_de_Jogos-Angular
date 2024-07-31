@@ -5,15 +5,21 @@ import { InitialApresentationComponent } from './initial-apresentation/initial-a
 import { SearchGamesComponent } from './search-games/search-games.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, 
+  {
+    path: '',
+    component: HomeComponent,
     children: [
       {
-        path: '', component: InitialApresentationComponent
-      }, 
+        path: '',
+        component: InitialApresentationComponent,
+      },
       {
-        path: 'search', component: SearchGamesComponent
-      }]
-}];
+        path: 'search',
+        component: SearchGamesComponent,
+      },
+    ],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
