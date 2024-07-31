@@ -139,3 +139,26 @@ header .container-form {
     }
   }
 }
+
+footer {
+  padding: 15px 20px;
+  background-color: $secondary-color;
+  margin-top: 50px;
+  border-top: 2px solid $contrast-color;
+
+  & .title-footer {
+    text-align: center;
+  }
+
+  & .footer-info-list {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    & a {
+      color: $light-color;
+      padding: 2px;
+    }
+  }
+}
