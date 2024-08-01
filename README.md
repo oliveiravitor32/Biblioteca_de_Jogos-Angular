@@ -1,17 +1,28 @@
 # Biblioteca de Jogos 🎮
 
-O projeto Biblioteca de Jogos é um website desenvolvido em Angular, integrado com a API RAWG Video Games Database. Ele foi criado com o objetivo de proporcionar prática com o framework Angular e preparar para projetos similares encontrados no mercado. O foco está na otimização da componentização, design, funcionalidade do website, além da busca por uma integração eficiente com APIs.
+O projeto Biblioteca de Jogos é um website desenvolvido em Angular 17, integrado com a API RAWG Video Games Database. Ele foi criado com o objetivo de proporcionar prática com o framework Angular e preparar para projetos similares encontrados no mercado. O foco está na otimização da componentização, design, funcionalidade do website, além da busca por uma integração eficiente com APIs.
 
-## Recursos principais:
+## 🚀 Recursos principais:
 
 - Integração com a API RAWG Video Games Database para obter dados de jogos em tempo real.
 - Design inovador
 - Funcionalidades de busca por parâmetros à API.
 - Capacidade de adicionar jogos aos favoritos.
 - Utilização de cache para melhorar a performance e a experiência do usuário.
+- Responsividade
 
-## Demo: [Deploy Vercel](https://biblioteca-de-jogos-angular-oliveiravitor32s-projects.vercel.app/)
-<img src="src/assets/preview_game_library.png" width="80%" height="auto" margin="0 auto"/>
+## Acesse agora a demonstração em deploy na Vercel: [Deploy Vercel](https://biblioteca-de-jogos-angular-oliveiravitor32s-projects.vercel.app/)
+# Prévia Desktop
+<div style="display: flex, width: 100%">
+    <img src="src/assets/desktop-preview-1.png" width="45%" height="auto" margin="0 auto"/>
+    <img src="src/assets/desktop-preview-2.png" width="45%" height="auto" margin="0 auto"/>
+</div>
+
+# Prévia Mobile
+<div style="display: flex, width: 100%">
+  <img src="src/assets/mobile-preview-1.png" width="25%" height="auto" margin="0 auto"/>
+  <img src="src/assets/mobile-preview-2.png" width="25%" height="auto" margin="0 auto"/>
+</div>
 
 # GameLibrary 🎮
 
