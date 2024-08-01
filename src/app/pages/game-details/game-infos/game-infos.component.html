@@ -1,0 +1,122 @@
+<section class="game-info-container">
+  <!-- Verifica se os dados estão carregados antes de exibir as informações -->
+  @if(!loading) {
+  <div class="wrapper-meta-info-purchase-info">
+    <!-- Informações meta do Jogo -->
+    <section class="meta-game-info-section">
+      <h2 class="title-section">Informações meta do Jogo</h2>
+      <ul class="wrapper-meta-game-info-items">
+        <li class="meta-game-info-item">
+          <span class="white-text-illuminated-shadow simple-text-size"
+            >Disponível em</span
+          >
+          <div class="container-platforms-icons">
+            <app-game-platforms
+              [platforms]="game.platforms"
+            ></app-game-platforms>
+          </div>
+        </li>
+        <li class="meta-game-info-item">
+          <span class="white-text-illuminated-shadow simple-text-size"
+            >Data de lançamento</span
+          >
+          <p class="simple-text-size">
+            {{ game.released | date : "dd/MM/yyyy" | dashIfEmpty }}
+          </p>
+        </li>
+        <li class="meta-game-info-item">
+          <span class="white-text-illuminated-shadow simple-text-size"
+            >Desenvolvedor</span
+          >
+          <p class="simple-text-size">
+            {{ game.developers[0]?.name | dashIfEmpty }}
+          </p>
+        </li>
+        <li class="meta-game-info-item">
+          <span class="white-text-illuminated-shadow simple-text-size"
+            >Produtora</span
+          >
+          <p class="simple-text-size">
+            {{ game.publishers[0]?.name | dashIfEmpty }}
+          </p>
+        </li>
+        <li class="meta-game-info-item">
+          <span class="white-text-illuminated-shadow simple-text-size"
+            >Classificação etária</span
+          >
+          <p class="simple-text-size">
+            {{ game.esrb_rating?.name | dashIfEmpty }}
+          </p>
+        </li>
+      </ul>
+    </section>
+    <!-- Informações de compra e avaliação -->
+    <section class="game-purchase-info-section">
+      <h2 class="title-section">Informações de compra e avaliação</h2>
+      <ul class="game-purchase-info-list">
+        <li class="white-text-illuminated-shadow simple-text-size">
+          Metacritic: <span>{{ game.metacritic | dashIfEmpty }}</span>
+        </li>
+        <li class="white-text-illuminated-shadow simple-text-size">
+          Onde adquirir
+          <div class="container-store-list">
+            <ul class="store-list">
+              @for(store of game.stores; track $index ) {
+              <li>
+                <a
+                  href="https://{{ store.store.domain }}"
+                  class="styled-purple-link styled-hover-text"
+                  >{{ store.store.name }}</a
+                >
+              </li>
+              }
+            </ul>
+          </div>
+        </li>
+        <li class="white-text-illuminated-shadow simple-text-size">
+          Site do jogo:
+          <a class="styled-purple-link styled-hover-text" target="_blank">{{
+            game.website | dashIfEmpty
+          }}</a>
+        </li>
+      </ul>
+    </section>
+  </div>
+  <!-- Requisitos do Sistema para PC -->
+  @if(enablePCRequirements) {
+  <section class="pc-requirements-section">
+    <div class="container-game-requirements-pc">
+      <h2 class="white-text-illuminated-shadow title-pc-requirements">
+        Requisitos do sistema para PC
+      </h2>
+      <div class="wrapper-requirements-pc">
+        <strong class="simple-text-size">Mínimo:</strong>
+        <ul>
+          @for(line of minimunRequerimentsForPC |
+          minimumRecommendedPcRequirements; track $index) {
+          <li class="simple-text-size">
+            {{ line }}
+          </li>
+          }
+        </ul>
+      </div>
+      <div class="wrapper-requirements-pc">
+        <strong class="simple-text-size">Recomendado:</strong>
+        <ul>
+          @for(line of recommendedRequerimentsForPC |
+          minimumRecommendedPcRequirements; track $index) {
+          <li class="simple-text-size">
+            {{ line }}
+          </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+  } } @else {
+  <mat-spinner
+    class="game-info-loading-spinner"
+    aria-label="Carregando informações de detalhes sobre o jogo"
+  ></mat-spinner
+  >}
+</section>

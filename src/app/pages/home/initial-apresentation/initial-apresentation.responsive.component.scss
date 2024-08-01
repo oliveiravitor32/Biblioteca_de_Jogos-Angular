@@ -1,0 +1,32 @@
+@media screen and (max-width: 900px) {
+  .container {
+    & section {
+      & h2 {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    & section {
+      & h2 {
+        font-size: 20px;
+        padding-left: 40px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    & section {
+      & h2 {
+        margin-top: 40px;
+        font-size: 16px;
+        padding-left: 20px;
+      }
+    }
+  }
+}

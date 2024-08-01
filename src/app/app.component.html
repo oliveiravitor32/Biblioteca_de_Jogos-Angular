@@ -1,37 +1,78 @@
-<header>
+<header [ngClass]="{ 'mobile-menu-open': isMobileMenuOpen }">
   <nav>
     <div class="container-links">
       <a class="styled-hover-text" routerLink="/genres">Gêneros</a>
       <a class="styled-hover-text" routerLink="/favorites">Favoritos</a>
     </div>
+    <div class="container-logo">
+      <a routerLink="/" class="logo styled-hover-text">Biblioteca de Jogos</a>
+    </div>
 
-    <a routerLink="/" class="logo styled-hover-text">Biblioteca de Jogos</a>
+    <div class="container-form">
+      <form [formGroup]="searchGameForm" (submit)="onSubmitSearchGame($event)">
+        <div class="field-container">
+          <input
+            type="text"
+            id="search-game-input"
+            formControlName="gameToSearch"
+            placeholder="Ex: Mario"
+          />
+          <label for="search-game-input">Buscar nome:</label>
+        </div>
 
-    <form [formGroup]="searchGameForm" (submit)="onSubmitSearchGame($event)">
-      <div class="field-container">
-        <input
-          type="text"
-          id="search-game-input"
-          formControlName="gameToSearch"
-          placeholder="Ex: Mario"
-        />
-        <label for="search-game-input">Buscar nome:</label>
-      </div>
+        <button type="submit" [disabled]="!searchGameForm.valid">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            style="fill: rgb(34, 52, 114)"
+          >
+            <path
+              d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A.998.998 0 0 0 5 3v18a1 1 0 0 0 .536.886zM7 4.909 17.243 12 7 19.091V4.909z"
+            ></path>
+          </svg>
+        </button>
+      </form>
+    </div>
 
-      <button type="submit" [disabled]="!searchGameForm.valid">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          style="fill: rgb(34, 52, 114)"
-        >
-          <path
-            d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A.998.998 0 0 0 5 3v18a1 1 0 0 0 .536.886zM7 4.909 17.243 12 7 19.091V4.909z"
-          ></path>
-        </svg>
-      </button>
-    </form>
+    <button
+      mat-icon-button
+      (click)="toggleMobileMenu()"
+      class="mobile-menu-toggle"
+      aria-label="Botão para abrir menu para dispositivos móveis"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
   </nav>
 </header>
 <router-outlet></router-outlet>
+<footer>
+  <section>
+    <h2 class="title-footer">Sobre este site</h2>
+    <ul class="footer-info-list">
+      <li>
+        Criado por
+        <a
+          class="styled-hover-text"
+          href="https://github.com/oliveiravitor32"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Perfil do GitHub de Vitor Oliveira"
+          >Vitor Oliveira</a
+        >
+      </li>
+      <li>
+        Desenvolvido em Angular 17, integrado com a
+        <a
+          class="styled-hover-text"
+          href="https://rawg.io/apidocs"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Documentação da API RAWG Video Games Database"
+          >API RAWG Video Games Database</a
+        >
+      </li>
+    </ul>
+  </section>
+</footer>

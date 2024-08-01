@@ -1,4 +1,4 @@
-export interface IListGameScreenshots {
+export interface IListGameScreenshotsResponse {
   count: number;
   next: string;
   previous: string;

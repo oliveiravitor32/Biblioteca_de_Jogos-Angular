@@ -7,15 +7,15 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-genres',
   templateUrl: './genres.component.html',
-  styleUrl: './genres.component.scss',
+  styleUrls: ['./genres.component.scss', './genres.responsive.component.scss'],
 })
 export class GenresComponent implements OnInit {
   genreList: IGameGenre[] = [];
 
   constructor(
-    private gameService: GameService,
-    private cacheService: CacheService,
-    private router: Router
+    private readonly gameService: GameService,
+    private readonly cacheService: CacheService,
+    private readonly router: Router
   ) {}
 
   loading: boolean = false;
@@ -31,7 +31,6 @@ export class GenresComponent implements OnInit {
       this.gameService.getGameGenres().subscribe({
         next: (resp) => {
           this.loading = false;
-          console.log(resp.results);
           this.cacheService.setGenresCache(resp.results);
           this.genreList = resp.results;
         },

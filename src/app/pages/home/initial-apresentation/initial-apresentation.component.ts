@@ -10,12 +10,20 @@ import { HttpParams } from '@angular/common/http';
 @Component({
   selector: 'app-initial-apresentation',
   templateUrl: './initial-apresentation.component.html',
-  styleUrl: './initial-apresentation.component.scss',
+  styleUrls: [
+    './initial-apresentation.component.scss',
+    './initial-apresentation.responsive.component.scss',
+  ],
 })
 export class InitialApresentationComponent {
   newReleasedGames: IGameOverview[] = [];
   popularGames: IGameOverview[] = [];
   relevantGames: IGameOverview[] = [];
+
+  constructor(
+    private readonly gameService: GameService,
+    private readonly cacheService: CacheService
+  ) {}
 
   ngOnInit(): void {
     const newGamesReleasedQueryParams: IGameQueryParams = {
@@ -61,13 +69,8 @@ export class InitialApresentationComponent {
   }
 
   onSelectGame(selectedGame: IGameOverview) {
-    this.gameService.onSelectGame(selectedGame);
+    this.cacheService.setSelectedGame(selectedGame);
   }
-
-  constructor(
-    private gameService: GameService,
-    private cacheService: CacheService
-  ) {}
 
   getRelevantGames() {
     // TODO

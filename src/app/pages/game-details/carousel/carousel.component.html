@@ -1,45 +1,50 @@
-<div class="carousel-slide">
+<section class="carousel-slide">
   <button
     class="carousel-control-button -left"
-    data-bs-target="#carouselExample"
-    data-bs-slide="prev"
+    aria-label="Botão para voltar slide"
+    (click)="previousSlide()"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="48"
       height="48"
       viewBox="0 0 24 24"
+      role="img"
     >
       <path
         d="m4.431 12.822 13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645z"
       ></path>
     </svg>
-
-    <span class="off-screen">Anterior</span>
+    <span class="off-screen">Voltar ao slide anterior</span>
   </button>
-  <div class="carousel-inner">
-    <div class="carousel-item">
-      @if(cachedImages.length === 0 ) {
-      <mat-spinner class="game-info-spinner"></mat-spinner>} @else {
-      <img [src]="cachedImages[0]" alt="..." />
+  <ul class="carousel-inner" aria-live="polite">
+    <li class="carousel-item">
+      @if(images.length === 0 ) {
+      <mat-spinner
+        class="game-info-spinner"
+        aria-label="Carregando slides"
+      ></mat-spinner
+      >} @else {
+      <img [src]="images[currentIndex]" alt="Imagem do slide atual" />
       }
-    </div>
-  </div>
+    </li>
+  </ul>
   <button
     class="carousel-control-button -right"
-    data-bs-target="#carouselExample"
-    data-bs-slide="next"
+    aria-label="Botão para avançar slide"
+    (click)="nextSlide()"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="48"
       height="48"
       viewBox="0 0 24 24"
+      role="img"
     >
       <path
         d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z"
       ></path>
     </svg>
-    <span class="off-screen">Próximo</span>
+    <span class="off-screen">Avançar para o próximo slide</span>
   </button>
-</div>
+</section>

@@ -3,10 +3,10 @@
 .genres-section {
   width: 100%;
   height: auto;
-  padding-top: 120px;
+  padding: 120px 0 50px 0;
   background-image: url("../../../assets/genres-page-bg.svg");
 
-  .container-genres {
+  & .container-genres {
     margin: 0 auto;
     width: 80%;
     height: 100%;

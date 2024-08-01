@@ -1,4 +1,7 @@
-<figure class="card" (click)="onSelectGenre()">
-  <img [src]="genre.image_background" alt="Ilustração do gênero" />
-  <h3>{{ genre.name }}</h3>
+<figure class="card" role="button" tabindex="0" (click)="onSelectGenre()">
+  <img
+    [src]="genre.image_background"
+    alt="Imagem representativa do gênero {{ genre.name }}"
+  />
+  <figcaption lang="en">{{ genre.name }}</figcaption>
 </figure>

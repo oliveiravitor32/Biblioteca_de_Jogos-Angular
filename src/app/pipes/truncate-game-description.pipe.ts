@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class TruncateGameDescriptionPipe implements PipeTransform {
   transform(description: string): string {
     const INVALID_DESCRIPTION = !description;
-    const MAX_LENGTH = 850;
+    const MAX_LENGTH = 700;
 
     if (INVALID_DESCRIPTION) {
       return 'Descrição indisponível';
@@ -18,6 +18,6 @@ export class TruncateGameDescriptionPipe implements PipeTransform {
       return description;
     }
 
-    return description.substring(0, MAX_LENGTH) + '...';
+    return description.substring(0, MAX_LENGTH).trim() + '...';
   }
 }

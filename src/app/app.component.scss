@@ -20,93 +20,146 @@ header {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    gap: 10px;
+
+    & .mobile-menu-toggle {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      display: none;
+    }
+  }
+
+  & .container-links,
+  .container-form {
+    display: flex;
+  }
+
+  & .container-links {
+    flex: 1;
+    gap: 40px;
+    font-size: 24px;
+    align-items: center;
+    padding: 5px 8px;
 
     & a {
-      font-size: 24px;
+      padding: 2px;
+    }
+  }
+
+  & .container-logo {
+    text-align: center;
+    & .logo {
+      font-size: 26px;
       padding: 5px 8px;
     }
   }
 }
 
-.container-links {
+header .container-form {
   flex: 1;
-  display: flex;
-  gap: 40px;
-}
-
-.logo {
-  text-align: center;
-}
-
-form {
-  flex: 1;
-  display: flex;
   align-items: center;
   justify-content: flex-end;
 
-  & .field-container {
-    position: relative;
+  & form {
+    display: flex;
+    align-items: flex-end;
+
+    & .field-container {
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+    }
+
+    & label {
+      position: absolute;
+      top: 8px;
+      left: 0;
+      font-weight: bold;
+      font-size: 18px;
+      transition: all 0.5s;
+    }
+
+    & input {
+      font-weight: bold;
+      height: auto;
+      padding: 20px 8px 0 8px;
+      background: transparent;
+      border: 0;
+      border-bottom: 2px solid $contrast-color;
+      font-size: 18px;
+      outline: none;
+      transition: all 0.5s;
+      text-align: bottom;
+
+      &:focus {
+        border-color: $light-color;
+      }
+
+      &::placeholder {
+        color: transparent;
+      }
+
+      &:valid ~ label,
+      &:focus ~ label {
+        font-size: 16px;
+        top: 2px;
+      }
+    }
+
+    & button {
+      width: 55px;
+      height: 30px;
+      position: relative;
+      color: black;
+      border: none;
+      font-weight: bold;
+      background-color: $contrast-color;
+
+      & svg {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+        background-color: #fff;
+        box-shadow: $illuminated-box-shadow;
+        color: $purple-color;
+      }
+
+      &:active {
+        background-color: rgb(167, 161, 161);
+      }
+
+      &:disabled {
+        background-color: rgb(167, 161, 161);
+      }
+    }
+  }
+}
+
+footer {
+  padding: 15px 20px;
+  background-color: $secondary-color;
+  border-top: 2px solid $contrast-color;
+
+  & .title-footer {
+    text-align: center;
   }
 
-  & label {
-    position: absolute;
-    top: 8px;
-    left: 0;
-    font-weight: bold;
-    font-size: 18px;
-    transition: all 0.5s;
-  }
+  & .footer-info-list {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
 
-  & input {
-    font-weight: bold;
-    height: auto;
-    padding: 20px 8px 0 8px;
-    background: transparent;
-    border: 0;
-    border-bottom: 2px solid $contrast-color;
-    font-size: 18px;
-    outline: none;
-    transition: all 0.5s;
-    text-align: bottom;
-
-    &:focus {
-      border-color: $light-color;
-    }
-
-    &::placeholder {
-      color: transparent;
-    }
-
-    &:valid ~ label,
-    &:focus ~ label {
-      font-size: 16px;
-      top: -5px;
-    }
-  }
-
-  & button {
-    color: black;
-    border: none;
-    font-weight: bold;
-    background-color: $contrast-color;
-    height: 32px;
-    padding: 0px 15px;
-    margin-top: 10px;
-
-    &:hover {
-      cursor: pointer;
-      transform: scale(1.05);
-      background-color: #fff;
-      box-shadow: $illuminated-box-shadow;
-      color: $purple-color;
-    }
-
-    &:active {
-      background-color: rgb(167, 161, 161);
-    }
-
-    &:disabled {
-      background-color: rgb(167, 161, 161);
+    & a {
+      color: $light-color;
+      padding: 2px;
     }
   }
 }

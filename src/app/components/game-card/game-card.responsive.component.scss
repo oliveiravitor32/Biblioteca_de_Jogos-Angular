@@ -1,0 +1,57 @@
+@media screen and (max-width: 1200px) {
+  .container-game-card {
+    height: 250px;
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container-game-card {
+    height: 200px;
+    width: 160px;
+  }
+  .container-game-card-figure {
+    & .container-figcaption p {
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container-game-card {
+    height: 162px;
+    width: 130px;
+  }
+
+  .container-game-card-figure {
+    & .container-figcaption p {
+      font-size: 12px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container-game-card {
+    height: 125px;
+    width: 100px;
+  }
+
+  .container-game-card-figure {
+    &:hover .container-figcaption {
+      bottom: 40%;
+      transform: translateY(0);
+    }
+
+    & .container-figcaption p {
+      font-weight: 500;
+      font-size: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container-game-card {
+    height: 100px;
+    width: 80px;
+  }
+}

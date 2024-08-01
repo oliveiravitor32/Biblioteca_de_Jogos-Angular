@@ -1,0 +1,47 @@
+@media screen and (max-width: 900px) {
+  .container-carousel {
+    & .carousel-button {
+      & svg {
+        width: 40px;
+      }
+    }
+
+    & .carousel-games {
+      & .carousel-inner {
+        gap: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container-carousel {
+    padding: 0;
+    gap: 0;
+    & .carousel-button {
+      & svg {
+        width: 35px;
+      }
+    }
+    & .carousel-games {
+      & .carousel-inner {
+        gap: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container-carousel {
+    & .carousel-button {
+      & svg {
+        width: 25px;
+      }
+    }
+    & .carousel-games {
+      & .carousel-inner {
+        gap: 5px;
+      }
+    }
+  }
+}

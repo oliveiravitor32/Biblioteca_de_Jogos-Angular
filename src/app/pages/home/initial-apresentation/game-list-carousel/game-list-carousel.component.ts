@@ -9,11 +9,13 @@ import {
 } from '@angular/core';
 import { IGameOverview } from '../../../../interfaces/game/game-overview.interface';
 
-
 @Component({
   selector: 'app-game-list-carousel',
   templateUrl: './game-list-carousel.component.html',
-  styleUrl: './game-list-carousel.component.scss',
+  styleUrls: [
+    './game-list-carousel.component.scss',
+    './game-list-carousel.responsive.component.scss',
+  ],
 })
 export class GameListCarouselComponent {
   @ViewChild('carouselInner') carouselInnerEl!: ElementRef<HTMLDivElement>;

@@ -2,7 +2,7 @@
 @import "../../../styles/utils/illuminated-box-shadow";
 
 .button-add-to-favorite {
-  margin-top: auto;
+  margin-top: 10px;
   display: flex;
   gap: 5px;
   align-items: center;
@@ -35,15 +35,5 @@
 
   &:active svg {
     fill: $contrast-color;
-  }
-}
-
-.button-add-to-favorite.small {
-  padding: 6px 8px;
-  font-size: 13px;
-
-  & svg {
-    width: 30px;
-    height: 30px;
   }
 }

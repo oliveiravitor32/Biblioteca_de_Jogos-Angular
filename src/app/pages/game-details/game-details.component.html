@@ -1,9 +1,11 @@
-<div>
+<main>
+  <!-- Seção de apresentação do jogo -->
   <section class="game-apresentation-section">
-    <div
+    <figure
       class="game-art-background"
       [appBackgroundImage]="game.background_image"
-    ></div>
+      role="img"
+    ></figure>
     <div class="wrapper-title-description">
       <h1>{{ game.name }}</h1>
       @if (!loading) {
@@ -11,114 +13,18 @@
         {{ game.description_raw | truncateGameDescription }}
       </p>
       <app-button-add-to-favorite
-        size="large"
         (click)="onToggleFavoriteGame()"
         class="fav-button"
       ></app-button-add-to-favorite>
       } @else {
-      <mat-spinner class="game-apresentation-spinner"></mat-spinner>
+      <mat-spinner
+        class="game-apresentation-spinner"
+        aria-label="Carregando informações de apresentação sobre o jogo"
+      ></mat-spinner>
       }
     </div>
-    <app-carousel [cachedImages]="cachedImagesForCarrousel"></app-carousel>
+    <app-carousel [images]="imagesToCarousel"></app-carousel>
   </section>
-  <section class="game-info-section">
-    <article class="article-meta-game-info">
-      <div class="wrapper-meta-game-info-items">
-        <div class="meta-game-info-item">
-          <span>Disponível em</span>
-          <div class="container-platforms-icons">
-            <app-game-platforms></app-game-platforms>
-          </div>
-        </div>
-        <div class="meta-game-info-item">
-          <span>Data de lançamento</span>
-          <p>{{ game.released | date : "dd/MM/yyyy" | dashIfEmpty }}</p>
-        </div>
-
-        @if(!loading) {
-        <div class="meta-game-info-item">
-          <span>Gêneros</span>
-          <p>{{ "buscar por request as informações faltantes" }}</p>
-        </div>
-        <div class="meta-game-info-item">
-          <span>Desenvolvedor</span>
-          <p>{{ game.developers[0]?.name | dashIfEmpty }}</p>
-        </div>
-        <div class="meta-game-info-item">
-          <span>Produtora</span>
-          <p>{{ game.publishers[0]?.name | dashIfEmpty }}</p>
-        </div>
-        <div class="meta-game-info-item">
-          <span>Classificação etária</span>
-          <p>{{ game.esrb_rating?.name | dashIfEmpty }}</p>
-        </div>
-        }
-      </div>
-      <div class="container-game-requirements-pc">
-        @if(!loading) {
-        <h2>Requisitos do sistema para PC</h2>
-        <div class="wrapper-requirements-pc">
-          <strong class="strong-text">Mínimo:</strong>
-          <ul>
-            <li>Sistema operacional: Windowns 10 64 bit</li>
-            <li>
-              Processador: Intel Core i5-6600, 3.3 GHz or AMD Ryzen 5 1500X, 3.5
-              GHz
-            </li>
-            <li>Memória: 12 GB RAM</li>
-            <li>
-              Placa de vídeo: NVIDIA GeForce GTX 750 Ti, 2 GB or AMD Radeon R7
-              360, 2 GB
-            </li>
-            <li>DirectX: Versão 11</li>
-            <li>Armazenamento: 7 GB de espaço disponível</li>
-          </ul>
-        </div>
-        <div class="wrapper-requirements-pc">
-          <strong>Recomendado:</strong>
-          <ul>
-            <li>Sistema operacional: Windowns 10 64 bit</li>
-            <li>
-              Processador: Intel Core i5-6600, 3.3 GHz or AMD Ryzen 5 1500X, 3.5
-              GHz
-            </li>
-            <li>Memória: 12 GB RAM</li>
-            <li>
-              Placa de vídeo: NVIDIA GeForce GTX 750 Ti, 2 GB or AMD Radeon R7
-              360, 2 GB
-            </li>
-            <li>DirectX: Versão 11</li>
-            <li>Armazenamento: 7 GB de espaço disponível</li>
-          </ul>
-        </div>
-        }
-      </div>
-    </article>
-    <section class="game-purchase-info-section">
-      <ul class="game-purchase-info-list">
-        <li>
-          Metacritic: <span>{{ game.metacritic | dashIfEmpty }}</span>
-        </li>
-        @if(!loading) {
-        <li>
-          <div class="container-store-list">
-            <h3>Onde adquirir</h3>
-            <ul class="store-list">
-              @for(store of game.stores; track $index ) {
-              <li class="styled-hover-text">
-                <a target="_blank">{{ store.store.name }}</a>
-              </li>
-              }
-            </ul>
-          </div>
-        </li>
-        <li>
-          Site do jogo:
-          <a class="styled-hover-text">{{ game.website | dashIfEmpty }}</a>
-        </li>
-        }
-      </ul>
-    </section>
-    @if(loading) { <mat-spinner class="game-info-spinner"></mat-spinner>}
-  </section>
-</div>
+  <!-- Seção de informações do jogo -->
+  <app-game-infos [game]="game"></app-game-infos>
+</main>

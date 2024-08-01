@@ -1,0 +1,57 @@
+@media screen and (max-width: 1200px) {
+    
+    .genres-section {
+        & .container-genres {
+          width: 90%;
+
+          & .container-genre-cards {
+            gap: 30px;
+
+        }
+    }
+}}
+
+@media screen and (max-width: 900px) {
+    
+    .genres-section {
+        & .container-genres {
+          width: 98%;
+
+         
+        & h2 {
+            font-size: 24px;
+        }
+    }
+}}
+
+@media screen and (max-width: 700px) {
+    
+    .genres-section {
+        & .container-genres {
+          padding: 30px 25px;
+
+          & .container-genre-cards {
+            gap: 20px;
+
+        }
+    }
+}}
+
+@media screen and (max-width: 400px) {
+    
+    .genres-section {
+        & .container-genres {
+          width: 100%;
+          margin: 0 2px;
+          padding: 30px 20px;
+
+          & h2 {
+            font-size: 18px;
+          }
+
+          & .container-genre-cards {
+            gap: 15px;
+
+        }
+    }
+}}

@@ -1,5 +1,10 @@
 <div class="container-game-card">
-  <figure class="container-game-card-figure" (click)="onSelectGame()">
+  <figure
+    class="container-game-card-figure"
+    role="button"
+    tabindex="0"
+    (click)="onSelectGame()"
+  >
     <img
       class="game-image"
       [src]="game.background_image"

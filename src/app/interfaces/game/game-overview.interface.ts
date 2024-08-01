@@ -1,4 +1,4 @@
-import { IGamePlatforms } from '../game-platforms.interface';
+import { IGamePlatform } from './game-platform.interface';
 
 export interface IGameOverview {
   id: number;
@@ -25,5 +25,5 @@ export interface IGameOverview {
         name: string;
       }
     | undefined;
-  platforms: [IGamePlatforms];
+  platforms: IGamePlatform[];
 }

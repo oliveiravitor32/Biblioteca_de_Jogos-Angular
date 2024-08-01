@@ -4,11 +4,15 @@ import { GameService } from '../../../services/game.service';
 import { IGameOverview } from '../../../interfaces/game/game-overview.interface';
 import { Subscription } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
+import { CacheService } from '../../../services/cache.service';
 
 @Component({
   selector: 'app-search-games',
   templateUrl: './search-games.component.html',
-  styleUrl: './search-games.component.scss',
+  styleUrls: [
+    './search-games.component.scss',
+    './search-games.responsive.component.scss',
+  ],
 })
 export class SearchGamesComponent implements OnInit, OnDestroy {
   gamesFound: IGameOverview[] = [];
@@ -17,24 +21,30 @@ export class SearchGamesComponent implements OnInit, OnDestroy {
   loading: boolean = false;
 
   constructor(
-    private route: ActivatedRoute,
-    private gameService: GameService
+    private readonly route: ActivatedRoute,
+    private readonly cacheService: CacheService,
+    private readonly gameService: GameService
   ) {}
 
   onSelectGame(selectedGame: IGameOverview) {
-    this.gameService.onSelectGame(selectedGame);
+    this.cacheService.setSelectedGame(selectedGame);
   }
 
   ngOnInit(): void {
     this.routeQueryMapSubscription = this.route.queryParamMap.subscribe({
       next: (resp) => {
-        const searchField = resp.get('game') ? resp.get('game')! : '';
+        const searchByNameField = resp.get('game') ? resp.get('game')! : '';
         const genreIdField = resp.get('genres') ? resp.get('genres')! : '';
-        const params: HttpParams = new HttpParams().appendAll({
+
+        let params: HttpParams = new HttpParams().appendAll({
           page_size: 40,
-          search: searchField,
-          genres: genreIdField,
         });
+        if (searchByNameField) {
+          params = params.append('search', searchByNameField);
+        }
+        if (genreIdField) {
+          params = params.append('genres', genreIdField);
+        }
 
         this.loading = true;
         this.gameService.getGamesByParams(params).subscribe({

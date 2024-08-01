@@ -1,10 +1,25 @@
 <div class="banner">
-  <img
-    src="../../../assets/banner-2000.png"
-    alt="Imagem de apresentação do site com o logo que exibe o texto 'Biblioteca de Jogos"
-  />
+  <picture>
+    <!-- Imagem para dispositivos móveis com largura máxima de 800px -->
+    <source
+      media="(max-width: 800px)"
+      srcset="../../../assets/banner-h250.png"
+      type="image/png"
+    />
+    <!-- Imagem para dispositivos de média resolução com largura máxima de 1500px -->
+    <source
+      media="(max-width: 1500px)"
+      srcset="../../../assets/banner-h1500.png"
+      type="image/png"
+    />
+    <!-- Imagem padrão para dispositivos maiores -->
+    <img
+      src="../../../assets/banner-h2000.png"
+      alt="Imagem de apresentação do site com a logo que exibe o texto 'Biblioteca de Jogos'"
+    />
+  </picture>
 </div>
 
 <main>
-  <router-outlet></router-outlet> 
+  <router-outlet></router-outlet>
 </main>

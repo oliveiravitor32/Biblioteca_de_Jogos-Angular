@@ -1,0 +1,98 @@
+@import "../../../../styles.scss";
+@import "../../../../styles/utils/illuminated-text-shadow";
+@import "../../../../styles/utils/illuminated-box-shadow";
+@import "../../../../styles/utils/styled-hover-text";
+
+.game-info-container {
+  position: relative;
+  padding: 60px;
+  width: 100%;
+  height: 900px;
+  background-color: $tertiary-color;
+
+  & .title-section {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  & .styled-purple-link {
+    text-shadow: none;
+    font-size: 16px;
+    border-bottom: 2px solid $purple-color;
+    padding: 2px 4px 0 4px;
+
+    &:hover {
+      cursor: pointer;
+      color: $purple-color;
+      transform: scale(1.1);
+      box-shadow: $illuminated-text-shadow;
+    }
+  }
+
+  & .white-text-illuminated-shadow {
+    color: $contrast-color;
+    text-shadow: $illuminated-text-shadow;
+    font-weight: bold;
+  }
+
+  & .wrapper-meta-info-purchase-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    & .meta-game-info-section {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      & .wrapper-meta-game-info-items {
+        max-width: 400px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 70px;
+        row-gap: 30px;
+
+        & .meta-game-info-item {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          & p {
+            color: $contrast-color;
+            font-weight: regular;
+          }
+        }
+      }
+    }
+
+    & .game-purchase-info-section {
+      flex: 1;
+
+      & .game-purchase-info-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        & .container-store-list {
+          & .store-list {
+            margin-top: 5px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+          }
+        }
+      }
+    }
+  }
+
+  & .pc-requirements-section {
+    margin-top: 60px;
+  }
+
+  & .game-info-loading-spinner {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50px;
+  }
+}

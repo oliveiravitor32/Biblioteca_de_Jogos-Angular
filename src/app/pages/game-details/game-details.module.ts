@@ -8,9 +8,10 @@ import { SharedComponentsModule } from './../../components/shared-components.mod
 import { CarouselComponent } from './carousel/carousel.component';
 import { SharedMaterialModule } from '../../shared/shared-material/shared-material.module';
 import { PipesModule } from '../../pipes/pipes.module';
+import { GameInfosComponent } from './game-infos/game-infos.component';
 
 @NgModule({
-  declarations: [GameDetailsComponent, CarouselComponent],
+  declarations: [GameDetailsComponent, CarouselComponent, GameInfosComponent],
   imports: [
     CommonModule,
     GameDetailsRoutingModule,
