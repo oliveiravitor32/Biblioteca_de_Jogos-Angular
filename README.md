@@ -9,6 +9,7 @@ O projeto Biblioteca de Jogos é um website desenvolvido em Angular, integrado c
 - Funcionalidades de busca por parâmetros à API.
 - Capacidade de adicionar jogos aos favoritos.
 - Utilização de cache para melhorar a performance e a experiência do usuário.
+- Responsividade
 
 ## Acesse agora a demonstração em deploy na Vercel: [Deploy Vercel](https://biblioteca-de-jogos-angular-oliveiravitor32s-projects.vercel.app/)
 # Prévia Desktop
