@@ -23,6 +23,10 @@
   .game-info-container {
     padding: 30px 30px;
 
+    & .title-section {
+      font-size: 18px;
+    }
+
     & .simple-text-size {
       font-size: 14px;
     }
@@ -63,6 +67,10 @@
   .game-info-container {
     padding: 20px 30px;
 
+    & .title-section {
+      font-size: 16px;
+    }
+
     & .simple-text-size {
       font-size: 12px;
     }
@@ -88,6 +96,10 @@
 @media screen and (max-width: 400px) {
   .game-info-container {
     padding: 20px 10px;
+
+    & .title-section {
+      margin-bottom: 8px;
+    }
 
     & .pc-requirements-section {
       & .title-pc-requirements {

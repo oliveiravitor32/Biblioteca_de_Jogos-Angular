@@ -1,9 +1,17 @@
-<div class="container">
-   @if(!loading) {
-      @for(game of gamesFound; track $index) {
-         <app-game-card [game]="game" (selectGameEmmiter)="onSelectGame($event)"></app-game-card>
-      }
-   } @else {
-      <mat-spinner></mat-spinner>
-   }
-</div>
+<section class="container">
+  <h2 class="title" id="jogos-encontrados">Jogos encontrados</h2>
+  <div
+    aria-live="polite"
+    class="container-game-cards"
+    aria-labelledby="jogos-encontrados"
+  >
+    @if(!loading) { @for(game of gamesFound; track $index) {
+    <app-game-card
+      [game]="game"
+      (selectGameEmmiter)="onSelectGame($event)"
+    ></app-game-card>
+    } } @else {
+    <mat-spinner aria-label="Carregando jogos encontrados"></mat-spinner>
+    }
+  </div>
+</section>

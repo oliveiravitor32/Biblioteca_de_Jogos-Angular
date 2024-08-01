@@ -10,6 +10,11 @@
   height: 900px;
   background-color: $tertiary-color;
 
+  & .title-section {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
   & .styled-purple-link {
     text-shadow: none;
     font-size: 16px;
@@ -86,6 +91,8 @@
 
   & .game-info-loading-spinner {
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     top: 50px;
   }
 }

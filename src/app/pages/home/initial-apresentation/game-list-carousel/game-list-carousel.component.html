@@ -1,5 +1,9 @@
 <div class="container-carousel">
-  <button class="carousel-button -left" (click)="previousSlide()">
+  <button
+    aria-label="Botão para voltar slides"
+    class="carousel-button -left"
+    (click)="previousSlide()"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="48"
@@ -11,10 +15,10 @@
       ></path>
     </svg>
 
-    <span class="off-screen">Anterior</span>
+    <span class="off-screen">Voltar aos slides anteriores</span>
   </button>
-  <ul class="carousel-games">
-    <div class="carousel-inner" #carouselInner>
+  <div class="carousel-games">
+    <ul class="carousel-inner" #carouselInner aria-label="Carossel de jogos">
       @for (game of gameList; track $index) {
       <li #carouselItem>
         <app-game-card
@@ -23,9 +27,13 @@
         ></app-game-card>
       </li>
       }
-    </div>
-  </ul>
-  <button class="carousel-button -right" (click)="nextSlide()">
+    </ul>
+  </div>
+  <button
+    aria-label="Botão para avançar slides"
+    class="carousel-button -right"
+    (click)="nextSlide()"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="48"
@@ -36,6 +44,6 @@
         d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z"
       ></path>
     </svg>
-    <span class="off-screen">Próximo</span>
+    <span class="off-screen">Avançar slides</span>
   </button>
 </div>

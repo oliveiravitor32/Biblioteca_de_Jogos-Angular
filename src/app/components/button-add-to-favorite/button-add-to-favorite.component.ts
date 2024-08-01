@@ -8,6 +8,4 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     './button-add-to-favorite.responsive.component.scss',
   ],
 })
-export class ButtonAddToFavoriteComponent {
-  @Input({ required: true }) size: string = '';
-}
+export class ButtonAddToFavoriteComponent {}

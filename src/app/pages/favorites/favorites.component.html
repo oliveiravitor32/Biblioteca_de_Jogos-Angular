@@ -1,13 +1,15 @@
 <section class="favorited-games-section">
-  <div class="container-favorited-games">
+  <div class="container-favorited-games" aria-live="polite">
     <h2>Jogos favoritos</h2>
-    <div class="container-game-card">
+    <ul class="container-game-card">
       @for (game of favoriteGames; track $index) {
-      <app-game-card
-        [game]="game"
-        (selectGameEmmiter)="onSelectGame($event)"
-      ></app-game-card>
+      <li>
+        <app-game-card
+          [game]="game"
+          (selectGameEmmiter)="onSelectGame($event)"
+        ></app-game-card>
+      </li>
       }
-    </div>
+    </ul>
   </div>
 </section>

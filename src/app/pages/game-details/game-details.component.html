@@ -1,9 +1,11 @@
-<div>
+<main>
+  <!-- Seção de apresentação do jogo -->
   <section class="game-apresentation-section">
-    <div
+    <figure
       class="game-art-background"
       [appBackgroundImage]="game.background_image"
-    ></div>
+      role="img"
+    ></figure>
     <div class="wrapper-title-description">
       <h1>{{ game.name }}</h1>
       @if (!loading) {
@@ -11,15 +13,18 @@
         {{ game.description_raw | truncateGameDescription }}
       </p>
       <app-button-add-to-favorite
-        size="large"
         (click)="onToggleFavoriteGame()"
         class="fav-button"
       ></app-button-add-to-favorite>
       } @else {
-      <mat-spinner class="game-apresentation-spinner"></mat-spinner>
+      <mat-spinner
+        class="game-apresentation-spinner"
+        aria-label="Carregando informações de apresentação sobre o jogo"
+      ></mat-spinner>
       }
     </div>
     <app-carousel [images]="imagesToCarousel"></app-carousel>
   </section>
+  <!-- Seção de informações do jogo -->
   <app-game-infos [game]="game"></app-game-infos>
-</div>
+</main>
