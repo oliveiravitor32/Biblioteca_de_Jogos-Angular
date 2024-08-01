@@ -2,7 +2,7 @@
 
 O projeto Biblioteca de Jogos é um website desenvolvido em Angular, integrado com a API RAWG Video Games Database. Ele foi criado com o objetivo de proporcionar prática com o framework Angular e preparar para projetos similares encontrados no mercado. O foco está na otimização da componentização, design, funcionalidade do website, além da busca por uma integração eficiente com APIs.
 
-## Recursos principais:
+## Recursos principais 🚀:
 
 - Integração com a API RAWG Video Games Database para obter dados de jogos em tempo real.
 - Design inovador
