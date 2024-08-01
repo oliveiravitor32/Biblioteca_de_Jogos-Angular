@@ -19,8 +19,8 @@ O projeto Biblioteca de Jogos é um website desenvolvido em Angular, integrado c
 
 # Mobile
 <div style="display: flex, width: 100%">
-  <img src="src/assets/mobile-preview-1.png.png" width="25%" height="auto" margin="0 auto"/>
-  <img src="src/assets/mobile-preview-2.png.png" width="25%" height="auto" margin="0 auto"/>
+  <img src="src/assets/mobile-preview-1.png" width="25%" height="auto" margin="0 auto"/>
+  <img src="src/assets/mobile-preview-2.png" width="25%" height="auto" margin="0 auto"/>
 </div>
 
 # GameLibrary 🎮
