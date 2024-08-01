@@ -27,6 +27,14 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/genres/genres.module').then((m) => m.GenresModule),
   },
+
+  {
+    path: '**',
+    loadChildren: () =>
+      import('./pages/page-not-found/page-not-found.module').then(
+        (m) => m.PageNotFoundModule
+      ),
+  },
 ];
 
 @NgModule({
